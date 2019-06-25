@@ -1,0 +1,16 @@
+// $brand-colour: blue;
+
+// * {
+//   color: $brand-colour;
+// }
+
+// when import don't include: "_" partial symbol and .scss
+@import './base/settings';
+@import './base/base';
+@import './component/add-option';
+@import './component/button';
+@import './component/container';
+@import './component/header';
+@import './component/modal';
+@import './component/widget';
+@import './component/option';
