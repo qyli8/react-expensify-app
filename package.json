@@ -5,8 +5,9 @@
   "author": "Joanna Li",
   "license": "MIT",
   "scripts": {
-    "serve": "live-server public",
+    "server": "live-server public",
     "build": "webpack",
+    "prod-build": "webpack -p --env=production",
     "dev-server": "webpack-dev-server",
     "test": "jest --config=jest.config.json"
   },
@@ -21,6 +22,7 @@
     "css-loader": "^2.1.1",
     "enzyme": "3.0.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "extract-text-webpack-plugin": "3.0.0",
     "live-server": "^1.2.1",
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
@@ -43,7 +45,7 @@
   },
   "devDependencies": {
     "enzyme-to-json": "^3.3.5",
-    "webpack-cli": "^3.3.2",
-    "jest": "20.0.4"
+    "jest": "20.0.4",
+    "webpack-cli": "^3.3.2"
   }
 }

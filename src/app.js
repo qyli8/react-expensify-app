@@ -11,7 +11,7 @@ import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
 
-// console.log(store.getState())
+
 
 const unsubscribe = store.subscribe(()=>{
   const state = store.getState()
@@ -26,7 +26,7 @@ const unsubscribe = store.subscribe(()=>{
 // store.dispatch(addExpense({description:'Rent', amount:109500}))
 // store.dispatch(setTextFilter("water"))
 
-
+console.log('testing')
 const jsx =(
   <Provider store={store}>
     <AppRouter />
