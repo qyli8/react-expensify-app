@@ -10,9 +10,9 @@ exports[`should return ListItem 1`] = `
     </h3>
   </Link>
   <p>
-    5067000
-     - 
-    -345600000
+    $50,670.00
+    -
+    28th Dec, 1969
   </p>
 </div>
 `;
