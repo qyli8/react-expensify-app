@@ -6,7 +6,6 @@ import filterReducer from '../reducers/filters'
 // rather than out the reducer in the root
 // create an object and register the reducer in the expenses property
 export default ()=>{
-
   const store = createStore(
     combineReducers({
       expenses:expensesReducer,
