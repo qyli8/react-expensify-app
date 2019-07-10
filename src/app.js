@@ -4,7 +4,6 @@ import {Provider} from 'react-redux';
 import AppRouter from './routes/AppRouter';
 import configureStore from'./store/configureStore';
 import getVisibleExpenses from './selectors/expenses';
-import {addExpense} from './actions/expenses'
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
@@ -18,6 +17,7 @@ const unsubscribe = store.subscribe(()=>{
   const visibileExpenses=getVisibleExpenses(state.expenses, state.filter)
   console.log(store.getState().filter)
   console.log(visibileExpenses)
+  console.log('auth status: ', store.getState().auth)
  
 })
 

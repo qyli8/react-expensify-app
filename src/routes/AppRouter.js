@@ -1,11 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Switch, Link, NavLink} from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory'
+import { Router, Route, Switch} from 'react-router-dom';
 import ExpendDashBoardPage from '../components/ExpendExpense'
 import AddExpensePage from '../components/AddExpense'
 import EditExpensePage from '../components/EditExpense'
 import HelpPage from '../components/HelpPage'
 import NotFoundPage from '../components/NotFoundPage'
+import LoginPage from '../components/LoginPage'
 import Header from '../components/Header'
 
 // do need use state then use class component 
@@ -19,20 +20,21 @@ import Header from '../components/Header'
 
 // anchr tag <a></a> will cause a full page refresh, hence use react router dom components like Link and NavLink
 
-
+export const history=createHistory()
 const AppRouter = ()=> (
-  <BrowserRouter>
+  <Router history={history}>
     <div>
       <Header />
       <Switch>
-        <Route path="/" component={ExpendDashBoardPage} exact={true} />
+        <Route path="/" component={LoginPage} exact={true} />
+        <Route path="/home" component={ExpendDashBoardPage} />
         <Route path="/create" component={AddExpensePage} />
         <Route path="/edit/:id" component={EditExpensePage} />
         <Route path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
-  </BrowserRouter>
+  </Router>
 )
 
 export default AppRouter;
