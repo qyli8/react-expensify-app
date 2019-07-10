@@ -7,7 +7,8 @@ import EditExpensePage from '../components/EditExpense'
 import HelpPage from '../components/HelpPage'
 import NotFoundPage from '../components/NotFoundPage'
 import LoginPage from '../components/LoginPage'
-import Header from '../components/Header'
+import PrivateRoute from './PrivateRoute'
+import PublicRoute from './PublicRoute'
 
 // do need use state then use class component 
 // API for browser router expect zero or one route component, more than one route will break
@@ -24,13 +25,12 @@ export const history=createHistory()
 const AppRouter = ()=> (
   <Router history={history}>
     <div>
-      <Header />
       <Switch>
-        <Route path="/" component={LoginPage} exact={true} />
-        <Route path="/home" component={ExpendDashBoardPage} />
-        <Route path="/create" component={AddExpensePage} />
-        <Route path="/edit/:id" component={EditExpensePage} />
-        <Route path="/help" component={HelpPage} />
+        <PublicRoute path="/" component={LoginPage} exact={true} />
+        <PrivateRoute path="/home" component={ExpendDashBoardPage} />
+        <PrivateRoute path="/create" component={AddExpensePage} />
+        <PrivateRoute path="/edit/:id" component={EditExpensePage} />
+        <PrivateRoute path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
