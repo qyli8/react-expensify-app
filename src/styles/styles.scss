@@ -7,11 +7,8 @@
 // when import don't include: "_" partial symbol and .scss
 @import './base/settings';
 @import './base/base';
-@import './component/add-option';
+@import './component/box-layout';
 @import './component/button';
-@import './component/container';
 @import './component/header';
-@import './component/modal';
-@import './component/widget';
-@import './component/option';
-@import './component/box-layout'
+@import './component/content-container.scss';
+@import './component/page-header';

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logout} from '../actions/auth'
 import {history} from '../routes/AppRouter'
@@ -9,12 +9,15 @@ export const Header = (props) =>{
     props.logout('UNAUTHORIZED')
   }
   return(
-    <header>
-      <h1>Expensify</h1>
-      <NavLink to="/home" activeClassName="is-active" exact={true}>DashBoard</NavLink>
-      <NavLink to="/create" activeClassName="is-active">Create</NavLink>
-      <NavLink to="/help" activeClassName='is-active'>Help</NavLink>
-      <button  onClick={logoutAccount}>Logout</button>
+    <header className="header">
+      <div className="content-container">
+      <div className="header_content">
+      <Link to="/home" className="header_title"><h1 >Expensify</h1></Link>
+      <button  onClick={logoutAccount}>Logout</button>  
+      </div>
+      </div>
+
+          
     </header>
   )
 }

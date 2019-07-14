@@ -7,8 +7,12 @@ export const LoginPage=(props)=>{
     props.login('AUTHORIZED')
   }
   return(
-    <div>
-      <button onClick={goToHome}>Login</button>
+    <div className="box-layout">
+      <div className="box-layout__box">
+        <h1 className="box-layout__title">Budget App</h1>
+        <p>Keep track of your expenses</p>
+        <button className="button-sytle" onClick={goToHome}>Login</button>
+      </div>
     </div>
   )
 }

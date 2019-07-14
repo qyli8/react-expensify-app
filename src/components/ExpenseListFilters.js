@@ -23,23 +23,29 @@ export class ExpenseListFilters extends React.Component{
   render(){
     return(
       <div>
-    <input type="text" onChange={this.onSetTextFilterChange} />
-    <select onChange={this.onSetSortByChange}>
-      <option value="date">Date</option>
-      <option value="amount">Amount</option>
-    </select>
-    <DateRangePicker
-      startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
-      startDateId="start"
-      endDate={this.props.filters.endDate} // momentPropTypes.momentObj or null,
-      endDateId="end"
-      onDatesChange={this.onDatesChange} // PropTypes.func.isRequired,
-      focusedInput={this.state.calendarFocused} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-      onFocusChange={this.onFocusChange} // PropTypes.func.isRequired,
-      numberOfMonths={1}
-      isOutsideRange={()=>false}
-      showClearDates={true}
-    />
+        <div>
+          <input type="text" onChange={this.onSetTextFilterChange} />
+        </div>
+        <div>
+          <select onChange={this.onSetSortByChange}>
+            <option value="date">Date</option>
+            <option value="amount">Amount</option>
+          </select>
+        </div>
+        <div>
+          <DateRangePicker
+          startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
+          startDateId="start"
+          endDate={this.props.filters.endDate} // momentPropTypes.momentObj or null,
+          endDateId="end"
+          onDatesChange={this.onDatesChange} // PropTypes.func.isRequired,
+          focusedInput={this.state.calendarFocused} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+          onFocusChange={this.onFocusChange} // PropTypes.func.isRequired,
+          numberOfMonths={1}
+          isOutsideRange={()=>false}
+          showClearDates={true}
+          />
+        </div>
   </div>
 
     )
