@@ -9,3 +9,8 @@
   font-size: $font-size-large;
   font-weight: 300
 }
+
+.button-sytle__edit{
+  @extend .button-sytle ;
+  width: 20%
+}
