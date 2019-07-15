@@ -12,5 +12,13 @@
 
 .button-sytle__edit{
   @extend .button-sytle ;
-  width: 20%
+  width: 20%;
+}
+
+.button-sytle__secondary{
+  @extend .button-sytle ;
+  width: 20%;
+  background-color:$light-red;
+  border-color: $light-red;
+  margin: 2% 0 0 0;
 }

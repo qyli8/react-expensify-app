@@ -65,7 +65,7 @@ export default class ExpenseForm extends React.Component{
   }
   render(){
     return(
-      <div className="content-container" >
+      <div >
         {this.state.error&&<p>{this.state.error}</p> }
         <form onSubmit={this.onSubmit} >
           <div className="input-group">
@@ -106,7 +106,7 @@ export default class ExpenseForm extends React.Component{
               onChange={this.onNoteChange}
             >            
             </textarea>
-            <button className="button-sytle__edit" >Save Edit</button>
+            <button className="button-sytle__edit" >Save</button>
           
           
           
