@@ -15,7 +15,7 @@ const store = configureStore();
 const unsubscribe = store.subscribe(()=>{
   const state = store.getState()
   const visibileExpenses=getVisibleExpenses(state.expenses, state.filter)
-  console.log(store.getState().filter)
+  console.log('expenses: ',store.getState().expenses)
   console.log(visibileExpenses)
   console.log('auth status: ', store.getState().auth)
  
