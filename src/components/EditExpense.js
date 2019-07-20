@@ -23,13 +23,16 @@ export class EditExpensePage extends React.Component {
           </div>
         </div>
         <div className="content-container">
-        <ExpenseForm
+          <div className="edit-form-container">
+          <ExpenseForm
           expense={this.props.expense}
           onSubmit={this.editExpense}
         />
-        <button class="button-sytle__secondary" onClick={this.removeExpense}>
+        <button className="button-sytle__secondary" onClick={this.removeExpense}>
           Remove
         </button>
+          </div>
+        
         </div>
         
       </div>
