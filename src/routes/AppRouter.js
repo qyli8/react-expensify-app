@@ -1,7 +1,7 @@
 import React from "react";
 import createHistory from 'history/createBrowserHistory'
 import { Router, Route, Switch} from 'react-router-dom';
-import ExpendDashBoardPage from '../components/ExpendExpense'
+import ExpendDashBoardPage from '../components/ExpenseDashboard'
 import AddExpensePage from '../components/AddExpense'
 import EditExpensePage from '../components/EditExpense'
 import HelpPage from '../components/HelpPage'
