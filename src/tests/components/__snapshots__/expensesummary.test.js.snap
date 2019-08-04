@@ -1,31 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should correctlly render expense summary with mutiple expenses 1`] = `
-<div>
-  <div>
-    <h1>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h2
+      className="page-header__title"
+    >
       Viewing 
-      463
-       
+      <span>
+        463
+         
+      </span>
       expenses
-      totalling 
-      $6,374,473,740,702,750,720.00
-    </h1>
+       totalling 
+      <span>
+        $6,374,473,740,702,750,720.00
+      </span>
+    </h2>
+    <button
+      className="button-sytle"
+      onClick={[Function]}
+    >
+      Add Expense
+    </button>
   </div>
 </div>
 `;
 
 exports[`should correctly render expense summary with 1 expense 1`] = `
-<div>
-  <div>
-    <h1>
+<div
+  className="page-header"
+>
+  <div
+    className="content-container"
+  >
+    <h2
+      className="page-header__title"
+    >
       Viewing 
-      1
-       
+      <span>
+        1
+         
+      </span>
       expense
-      totalling 
-      $123.00
-    </h1>
+       totalling 
+      <span>
+        $123.00
+      </span>
+    </h2>
+    <button
+      className="button-sytle"
+      onClick={[Function]}
+    >
+      Add Expense
+    </button>
   </div>
 </div>
 `;

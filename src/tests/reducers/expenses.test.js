@@ -5,7 +5,7 @@ import moment from 'moment';
 
 test('should set default state',()=>{
   const state = expensesReducers(undefined,{type:'testing'});
-  expect(state).toEqual([])
+  expect(state.length).toEqual([{"amount": "500", "createdAt": 0, "description": "item 1", "id": "f049e703-dbbd-41b4-925c-c52f9b70e3e4", "note": ""}, {"amount": "5067000", "createdAt": 0, "description": "item 2", "id": "b4dd7fd0-d0c2-4f02-9e8f-3f94d518a343", "note": ""}, {"amount": "5067", "createdAt": 0, "description": "item 3", "id": "4b1b8447-e32c-4a3e-b761-1d06bd523e74", "note": "abcd"}].length)
 })
 
 test('should remove expense by id', ()=>{

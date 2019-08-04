@@ -1,18 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should return ListItem 1`] = `
-<div>
-  <Link
-    to="/edit/2"
-  >
-    <h3>
+<Link
+  className="list-item"
+  to="/edit/2"
+>
+  <div>
+    <h4
+      className="list-item__title"
+    >
       item 2
-    </h3>
-  </Link>
-  <p>
+    </h4>
+    <span
+      className="list-item__sub-title"
+    >
+      28th Dec, 1969
+    </span>
+  </div>
+  <h3
+    className="list-item__data"
+  >
     $50,670.00
-    -
-    28th Dec, 1969
-  </p>
-</div>
+     
+  </h3>
+</Link>
 `;

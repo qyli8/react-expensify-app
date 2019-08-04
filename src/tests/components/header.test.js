@@ -7,9 +7,9 @@ test('should render Header corretly', ()=>{
   expect(wrapper).toMatchSnapshot();
 })
 
-test('should call logout and set status to unauthorized', ()=>{
-  const logout=jest.fn()
-  const wrapper = shallow(<Header logout={logout}/>);
-  wrapper.find('button').simulate('click')
-  expect(logout).toHaveBeenLastCalledWith('UNAUTHORIZED')
-})
+// test('should call logout and set status to unauthorized', ()=>{
+//   const logout=jest.fn()
+//   const wrapper = shallow(<Header logout={logout}/>);
+//   wrapper.find('button').simulate('click')
+//   expect(logout).toHaveBeenLastCalledWith('UNAUTHORIZED')
+// })
