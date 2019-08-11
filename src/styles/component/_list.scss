@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   padding: $s-size;
-  border:1px solid darken($off-white, 7%); 
+  // border:1px solid darken($off-white, 7%); 
   border-top: none;
   text-decoration: none;
   color: $dark-grey;
@@ -56,4 +56,8 @@
 
 .list-body{
   margin-bottom: 10%;
+}
+
+.MuiTableCell-bodyy{
+  color: red
 }

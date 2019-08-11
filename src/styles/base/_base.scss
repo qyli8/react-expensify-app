@@ -15,3 +15,12 @@ button{
 button:disabled{
   cursor: default;
 }
+.bottom_margin{
+  margin-bottom: 2%;
+}
+
+tbody tr {
+  &:hover{
+    background: $off-white;
+  }
+}
