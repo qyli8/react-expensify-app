@@ -5,16 +5,16 @@ import selectExpenses from '../selectors/expenses'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import { withStyles } from '@material-ui/core/styles';
-
+import { withStyles} from '@material-ui/core/styles';
 import TableHead from '@material-ui/core/TableHead';
 import Paper from '@material-ui/core/Paper';
+import Edit from '@material-ui/icons'
 // import TableSortLabel from '@material-ui/core/TableSortLabel';
 // import Checkbox from '@material-ui/core/Checkbox';
 // import Button from '@material-ui/core/Button';
 
-
 export const ExpenseList = (props) => {
+
   const CustomHeaderCell = withStyles(theme => ({
     head: {
       backgroundColor: theme.palette.common.black,
