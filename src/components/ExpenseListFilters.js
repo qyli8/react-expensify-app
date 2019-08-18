@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate} from '../actions/filters';
 import {DateRangePicker} from 'react-dates'
+import Hidden from '@material-ui/core/Hidden';
 
 export class ExpenseListFilters extends React.Component{
   state={
@@ -27,12 +28,14 @@ export class ExpenseListFilters extends React.Component{
           <div className="input-group__item">
             <input className="input" type="text" onChange={this.onSetTextFilterChange} placeholder="Search Expenses"/>
           </div>
-          <div className="input-group__item">
-            <select className="select" onChange={this.onSetSortByChange}>
-              <option value="date">Date</option>
-              <option value="amount">Amount</option>
-            </select>
-          </div>
+          <Hidden mdUp>
+            <div className="input-group__item">
+              <select className="select" onChange={this.onSetSortByChange}>
+                <option value="date">Date</option>
+                <option value="amount">Amount</option>
+              </select>
+            </div>
+          </Hidden>
           <div className="input-group__item">
             <DateRangePicker
             startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,

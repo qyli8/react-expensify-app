@@ -8,23 +8,25 @@
 }
 
 .list-item{
+  // display: flex;
+  // flex-direction: column;
+  // padding: $s-size;
+  // // border:1px solid darken($off-white, 7%); 
+  // border-top: none;
+  // text-decoration: none;
+  // color: $dark-grey;
+  // transition: background .3s ease;
+  // &:hover{
+  //   background: $off-white;
+  // }
+  // @media(min-width: $desktop-breakpoint){
+  //   align-items: center;
+  //   flex-direction: row;
+  //   justify-content: space-between;
+  //   padding: $m-size;
+  // }
   display: flex;
-  flex-direction: column;
-  padding: $s-size;
-  // border:1px solid darken($off-white, 7%); 
-  border-top: none;
-  text-decoration: none;
-  color: $dark-grey;
-  transition: background .3s ease;
-  &:hover{
-    background: $off-white;
-  }
-  @media(min-width: $desktop-breakpoint){
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: $m-size;
-  }
+  justify-content: space-between;
 }
 
 .list-item__title{
@@ -60,4 +62,13 @@
 
 .MuiTableCell-bodyy{
   color: red
+}
+
+.list-item_action{
+  justify-content: flex-end
+}
+
+.item_link{
+  text-decoration: none;
+  color: white
 }
