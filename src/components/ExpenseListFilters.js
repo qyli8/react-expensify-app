@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate } from '../actions/filters';
+import {TotalItems, TotalCost} from '../actions/calculateExpenses'
+import numeral from 'numeral'
+import getVisibleExpenses from '../selectors/expenses'
 import { DateRangePicker } from 'react-dates'
 import Hidden from '@material-ui/core/Hidden';
 import TextField from '@material-ui/core/TextField';
@@ -16,9 +19,29 @@ import InputLabel from '@material-ui/core/InputLabel';
 const CustomSelect = withStyles(theme => ({
   select: {
     "height": "1rem",
-    "width":"10rem"
+    "width":"10rem",
+    "fontSize":"large"
   },
 }))(Select);
+
+const CustomMenuItem=withStyles(theme=>({
+  root:{
+    "fontSize":"medium"
+  }
+}))(MenuItem)
+
+const CustomInputLabel=withStyles(theme=>({
+  root: {
+    "fontSize":"medium",
+    color:"purple"
+  }
+}))(InputLabel)
+
+const SytledSearchIcon=withStyles(theme=>({
+  root: {
+    fontSize:"large"
+  }
+}))(Search)
 
 export class ExpenseListFilters extends React.Component {
   state = {
@@ -42,7 +65,6 @@ export class ExpenseListFilters extends React.Component {
       <div className="content-container">
         <div >
           <TextField
-            classes={{ input: "2rem" }}
             id="filled-search"
             type="search"
             fullWidth
@@ -51,33 +73,26 @@ export class ExpenseListFilters extends React.Component {
             onChange={this.onSetTextFilterChange}
             placeholder="Search Expenses"
             InputProps={{
-              startAdornment: <InputAdornment position="start"><Search size="medium" /></InputAdornment>,
+              startAdornment: <InputAdornment position="start"><SytledSearchIcon /></InputAdornment>,
               style: {
-                fontSize: "large"
+                fontSize: "large",
+                color:"purple"
               }
             }}
           />
         </div>
         <div className="input-group">
-
           <Hidden mdUp>
             <div className="input-group__item">
               <div >
-                <InputLabel htmlFor="age-helper">Sort By</InputLabel>
+                <CustomInputLabel htmlFor="age-helper">Sort By</CustomInputLabel>
                 <CustomSelect
-                  value={this.props.sortBy}
+                  value={this.props.filters.sortBy}
                   onChange={this.onSetSortByChange}                 
-                  inputProps={{
-                    name: 'age',
-                    id: 'age-simple',
-                  }}
                   input={<OutlinedInput labelWidth={10}  name="sort_by" id="outlined-sort-by" />}
                 >
-                  <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value="date">Date</MenuItem>
-                <MenuItem value="amount">Amount</MenuItem>
+                <CustomMenuItem value="date">Date</CustomMenuItem>
+                <CustomMenuItem value="amount">Amount</CustomMenuItem>
                 </CustomSelect>
               </div>
             </div>
@@ -105,7 +120,10 @@ export class ExpenseListFilters extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-  filters: state.filter
+  filters: state.filter,
+  expenseTotal: numeral(TotalCost(getVisibleExpenses(state.expenses, state.filter))).format('$0,0.00'),
+    expenseCount: TotalItems(getVisibleExpenses(state.expenses, state.filter)),
+    expenseWord: TotalCost(getVisibleExpenses(state.expenses, state.filter))===1?'expense':'expenses'
 })
 
 const matchDispatchToProps = (dispatch) => ({

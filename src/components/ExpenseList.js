@@ -2,14 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ListItems from './ExpenseListItems';
 import selectExpenses from '../selectors/expenses'
+import {TotalItems, TotalCost} from '../actions/calculateExpenses'
+import numeral from 'numeral'
+import getVisibleExpenses from '../selectors/expenses'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
+import TableFooter from '@material-ui/core/TableFooter';
+import TableRow from '@material-ui/core/TableRow';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import TableHead from '@material-ui/core/TableHead';
 import Paper from '@material-ui/core/Paper';
 import Hidden from '@material-ui/core/Hidden';
 import { flexbox } from '@material-ui/system';
+
 // import TableSortLabel from '@material-ui/core/TableSortLabel';
 // import Checkbox from '@material-ui/core/Checkbox';
 // import Button from '@material-ui/core/Button';
@@ -28,6 +34,14 @@ const useStyles = makeStyles(theme => ({
       background: "none"
     },
     fontSize: 16
+  },
+  "list_footer":{
+    color: "purple",
+    textAlign: "right",
+    fontSize: "15px"
+  },
+  "list_footer_span":{
+    fontWeight: "bold"
   }
 }));
 export const ExpenseList = (props) => {
@@ -71,6 +85,11 @@ export const ExpenseList = (props) => {
               ))
             }
           </TableBody>
+          {/* <TableFooter>
+            <TableRow>
+             
+            </TableRow>
+          </TableFooter> */}
 
         </Table>
         {
@@ -83,6 +102,13 @@ export const ExpenseList = (props) => {
           )
         }
       </Paper>
+      <div>
+        <p className={classes["list_footer"]}>Viewing <span className={classes["list_footer_span"]}> 
+        {props.expenseCount} </span> {props.expenseWord} currenty expense 
+        <span className={classes["list_footer_span"]}> {props.expenseTotal}</span></p>
+      </div>
+     
+
     </div>
   )
 }
@@ -90,7 +116,10 @@ export const ExpenseList = (props) => {
 const mapStateToProps = (state) => {
   return {
     // redux state to be used as prop(s) of a componment inside the HigerOrderComponent (configured when redux store is created)
-    expenses: selectExpenses(state.expenses, state.filter)
+    expenses: selectExpenses(state.expenses, state.filter),
+    expenseTotal: numeral(TotalCost(getVisibleExpenses(state.expenses, state.filter))).format('$0,0.00'),
+    expenseCount: TotalItems(getVisibleExpenses(state.expenses, state.filter)),
+    expenseWord: TotalCost(getVisibleExpenses(state.expenses, state.filter))===1?'expense':'expenses'
   }
 }
 
