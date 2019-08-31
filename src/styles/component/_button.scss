@@ -11,14 +11,31 @@
 }
 
 .button-sytle__edit{
+  background-color: $purple-blue;
+  color:$off-white;
+  border-radius:12px;
   @extend .button-sytle ;
   width: 20%;
 }
 
 .button-sytle__secondary{
   @extend .button-sytle ;
+  border-radius:12px;
   width: 20%;
   background-color:$light-red;
   border-color: $light-red;
   margin: 2% 0 0 0;
+}
+
+.button-sytle__cancel{
+  @extend .button-sytle ;
+  border-radius:12px;
+  width: 20%;
+  background-color:$light-yellow;
+  border-color: $light-yellow;
+  margin: 2% 0 0 0;
+}
+.button_group{
+  display: flex;
+  justify-content: space-between
 }

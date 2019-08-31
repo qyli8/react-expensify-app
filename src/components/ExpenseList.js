@@ -104,7 +104,7 @@ export const ExpenseList = (props) => {
       </Paper>
       <div>
         <p className={classes["list_footer"]}>Viewing <span className={classes["list_footer_span"]}> 
-        {props.expenseCount} </span> {props.expenseWord} currenty expense 
+        {props.expenseCount} </span> {props.expenseWord} current expense 
         <span className={classes["list_footer_span"]}> {props.expenseTotal}</span></p>
       </div>
      

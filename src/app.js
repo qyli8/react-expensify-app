@@ -15,10 +15,6 @@ const store = configureStore();
 const unsubscribe = store.subscribe(()=>{
   const state = store.getState()
   const visibileExpenses=getVisibleExpenses(state.expenses, state.filter)
-  console.log('expenses: ',store.getState().expenses)
-  console.log(visibileExpenses)
-  console.log('auth status: ', store.getState().auth)
- 
 })
 
 // store.dispatch(addExpense({description:'Water Bill', amount:300}))
@@ -26,7 +22,7 @@ const unsubscribe = store.subscribe(()=>{
 // store.dispatch(addExpense({description:'Rent', amount:109500}))
 // store.dispatch(setTextFilter("water"))
 
-console.log('testing')
+// console.log('testing')
 const jsx =(
   <Provider store={store}>
     <AppRouter />

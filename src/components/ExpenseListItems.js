@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import moment from 'moment'
 import numeral from 'numeral';
@@ -9,6 +10,8 @@ import TableCell from '@material-ui/core/TableCell';
 import Hidden from '@material-ui/core/Hidden';
 import TableRow from '@material-ui/core/TableRow';
 import Fab from '@material-ui/core/Fab';
+import {removeExpense} from '../actions/expenses'
+import DeleteModal from './DeleteModal'
 
 // import Edit from '@material-ui/icons'
 const useStyles = makeStyles(theme => ({
@@ -37,9 +40,29 @@ const useStyles = makeStyles(theme => ({
   },
   item_discription:{
     display:"block"
+  },
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: "#f7f7ff",
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+  modle_options:{
+    display:'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    fontSize: '15px'
+  },
+  modle_message:{
+    fontSize: '17px'
   }
 }));
-export const ListItems = ({ description, amount, createdAt, id, note }) => {
+export const ListItems = ({ description, amount, createdAt, id, removeExpense }) => {
   const CustomTableCell = withStyles(theme => ({
     body: {
       fontSize: 16
@@ -47,6 +70,20 @@ export const ListItems = ({ description, amount, createdAt, id, note }) => {
   }))(TableCell);
 
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const removeItem = () =>{
+    handleClose();
+
+  }
 
   return(
     <TableRow>
@@ -59,9 +96,17 @@ export const ListItems = ({ description, amount, createdAt, id, note }) => {
             <Fab size="small" className={classes.fab} color="primary" aria-label="edit">
               <Link className={classes.item_link} to={`/edit/${id}`}> <Edit className={classes.icon} /></Link>
             </Fab>
-            <Fab size="small" className={classes.fab} color="secondary" aria-label="delete">
+            <Fab size="small" className={classes.fab} color="secondary" aria-label="delete" onClick={handleOpen}>
               <DeleteForeverIcon className={classes.icon}/>
             </Fab>
+            <DeleteModal
+              open={open}
+              classes={classes}
+              handleClose={handleClose}
+              description={description}
+              removeExpense={() => { removeExpense({ id }) }}
+            />
+                      
           </div> 
         </CustomTableCell>
       </Hidden>
@@ -79,9 +124,16 @@ export const ListItems = ({ description, amount, createdAt, id, note }) => {
             <Fab size="small" className={classes.fab} color="primary" aria-label="edit">
               <Link className={classes.item_link} to={`/edit/${id}`}> <Edit className={classes.icon} /></Link>
             </Fab>
-            <Fab size="small" className={classes.fab} color="secondary" aria-label="delete">
+            <Fab size="small" className={classes.fab} color="secondary" aria-label="delete" onClick={handleOpen}>
               <DeleteForeverIcon className={classes.icon}/>
             </Fab>
+            <DeleteModal
+              open={open}
+              classes={classes}
+              handleClose={handleClose}
+              description={description}
+              removeExpense={() => { removeExpense({ id }) }}
+            />
           </div> 
           </div>
         </CustomTableCell>
@@ -91,4 +143,9 @@ export const ListItems = ({ description, amount, createdAt, id, note }) => {
 
 )};
 
-export default ListItems
+const matchDispatchaToProps = (dispatch) => ({
+  removeExpense: (expense) => dispatch(removeExpense(expense)),
+})
+
+
+export default connect(undefined, matchDispatchaToProps)(ListItems) 
