@@ -22,6 +22,20 @@ const expensesReducerDefaultState=[
   note:'abcd',
   amount:'5067',
   createdAt:moment().valueOf()
+},
+{
+  id:uuid(),
+  description: 'item 4',
+  note:'abcd',
+  amount:'34.0',
+  createdAt:moment().subtract(1, 'months').valueOf()
+},
+{
+  id:uuid(),
+  description: 'item 5',
+  note:'abcd',
+  amount:'120.0',
+  createdAt:moment().subtract(1, 'months').valueOf()
 }
 ]
 

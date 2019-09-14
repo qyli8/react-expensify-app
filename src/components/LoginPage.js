@@ -2,8 +2,8 @@ import React from 'react'
 import {login} from '../actions/auth'
 import {connect} from 'react-redux'
 export const LoginPage=(props)=>{
-  const goToHome=()=>{
-    props.history.push("/home")
+  const goToDashboard=()=>{
+    props.history.push("/dashboard")
     props.login('AUTHORIZED')
   }
   return(
@@ -11,7 +11,7 @@ export const LoginPage=(props)=>{
       <div className="box-layout__box">
         <h1 className="box-layout__title">Budget App</h1>
         <p>Keep track of your expenses</p>
-        <button className="button-sytle" onClick={goToHome}>Login</button>
+        <button className="button-sytle" onClick={goToDashboard}>Login</button>
       </div>
     </div>
   )

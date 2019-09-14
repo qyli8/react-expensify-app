@@ -9,6 +9,7 @@ import NotFoundPage from '../components/NotFoundPage'
 import LoginPage from '../components/LoginPage'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
+import DashBoardPage from '../components/Dashboard'
 
 // do need use state then use class component 
 // API for browser router expect zero or one route component, more than one route will break
@@ -31,6 +32,7 @@ const AppRouter = ()=> (
         <PrivateRoute path="/create" component={AddExpensePage} />
         <PrivateRoute path="/edit/:id" component={EditExpensePage} />
         <PrivateRoute path="/help" component={HelpPage} />
+        <PrivateRoute path="/dashboard" component={DashBoardPage}/>
         <Route component={NotFoundPage} />
       </Switch>
     </div>

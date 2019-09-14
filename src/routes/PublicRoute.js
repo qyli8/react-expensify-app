@@ -8,7 +8,7 @@ export const PublicRoute = ({
   ...restOfProps
 })=>(
  <Route {...restOfProps} component={(props)=>(
-  notAuthenticated?(<Component {...props}/>):(<Redirect to="/home"/>)
+  notAuthenticated?(<Component {...props}/>):(<Redirect to="/dashboard"/>)
   )
 }/>
 )

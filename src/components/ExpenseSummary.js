@@ -21,7 +21,9 @@ export const ExpenseSummary = () =>
   const addExepnse = ()=>{
     history.push("/create")
   }
-  
+  const gotoDashboard = ()=>{
+    history.push("/dashboard")
+  }
   const classes = useStyles();
   return(
     <div className="page-header">
@@ -31,6 +33,10 @@ export const ExpenseSummary = () =>
         <Fab variant="extended" color="primary" aria-label="add" className={classes.buttonStyle} onClick={addExepnse} >
           <AddCircle className={classes.extendedIcon} />
           <span className={classes.addButtonFont}>expense</span>
+        </Fab>
+        <Fab variant="extended" color="primary" aria-label="add" className={classes.buttonStyle} onClick={gotoDashboard} >
+          {/* <AddCircle className={classes.extendedIcon} /> */}
+          <span className={classes.addButtonFont}>Dashboard</span>
         </Fab>
         </div>
     </div>

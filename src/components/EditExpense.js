@@ -13,15 +13,15 @@ export class EditExpensePage extends React.Component {
   editExpense = (expense) => {
 
     this.props.editExpense(this.props.match.params.id, expense)
-    this.props.history.push("/")
+    this.props.history.push("/home")
   }
   removeExpense = (e) => {
     this.props.removeExpense(this.props.expense)
-    this.props.history.push("/")
+    this.props.history.push("/home")
   }
 
   cancel=()=>{
-    this.props.history.push("/")
+    this.props.history.push("/home")
   }
 
   render() {

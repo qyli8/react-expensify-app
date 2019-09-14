@@ -14,7 +14,7 @@ export class AddExpensePage extends React.Component{
     this.props.history.push('/')
   }
   cancel=()=>{
-    this.props.history.push("/")
+    this.props.history.push("/home")
   }
 
   render(){
