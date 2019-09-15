@@ -16,13 +16,16 @@ const useStyles = makeStyles(theme => ({
     fontSize: "small"
   }
 }));
-export const ExpenseSummary = () => 
+export const ExpenseSummary = (props) => 
 {
   const addExepnse = ()=>{
     history.push("/create")
   }
   const gotoDashboard = ()=>{
     history.push("/dashboard")
+  }
+  const gotoExpanseDashboard = ()=>{
+    history.push("/home")
   }
   const classes = useStyles();
   return(
@@ -34,10 +37,17 @@ export const ExpenseSummary = () =>
           <AddCircle className={classes.extendedIcon} />
           <span className={classes.addButtonFont}>expense</span>
         </Fab>
-        <Fab variant="extended" color="primary" aria-label="add" className={classes.buttonStyle} onClick={gotoDashboard} >
+        {
+          props.path==="/dashboard"?
+        <Fab variant="extended" color="primary" aria-label="add" className={classes.buttonStyle} onClick={gotoExpanseDashboard} >
+          {/* <AddCircle className={classes.extendedIcon} /> */}
+          <span className={classes.addButtonFont}>Expense Record</span>
+        </Fab>:
+          <Fab variant="extended" color="primary" aria-label="add" className={classes.buttonStyle} onClick={gotoDashboard} >
           {/* <AddCircle className={classes.extendedIcon} /> */}
           <span className={classes.addButtonFont}>Dashboard</span>
         </Fab>
+        }
         </div>
     </div>
   )

@@ -16,15 +16,14 @@ export const DashBoardPage = (props) => {
   const data = [
     {
       "name": moment().subtract(7, 'months').format('MMM YYYY'),
-      "expense": props.monthSevenExpenses,
-    
+      "expense": props.monthSevenExpenses
     },
     {
       "name": moment().subtract(6, 'months').format('MMM YYYY'),
       "expense": props.monthSixExpenses
     },
     {
-      "name":moment().subtract(5, 'months').format('MMM YYYY'),
+      "name": moment().subtract(5, 'months').format('MMM YYYY'),
       "expense": props.monthFiveExpenses,
     },
     {
@@ -44,11 +43,9 @@ export const DashBoardPage = (props) => {
       "expense": props.monthOneExpenses,
     }
   ]
-
-  const monthlyExpenseTotal = (expenses) =>expenses[0].amount
   return (
     <div>
-      <ExpenseSumary />
+      <ExpenseSumary path={props.match.path} />
       <div className="data_row">
         <div className="data_title">
           <BarChart width={500} height={300} data={data}>
@@ -68,16 +65,16 @@ export const DashBoardPage = (props) => {
 
 
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
   return {
     expenses: state.expenses,
-    monthOneExpenses:state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(1, 'months').get('month')).reduce((total, currentExpense)=> total + parseFloat(currentExpense.amount),0),
-    monthTwoExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(2, 'months').get('month')).reduce((total, currentExpense)=> total + parseFloat(currentExpense.amount),0),
-    monthThreeExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(3, 'months').get('month')).reduce((total, currentExpense)=> total + parseFloat(currentExpense.amount),0),
-    monthFourExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(4, 'months').get('month')).reduce((total, currentExpense)=> total + parseFloat(currentExpense.amount),0),
-    monthFiveExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(5, 'months').get('month')).reduce((total, currentExpense)=> total + parseFloat(currentExpense.amount),0),
-    monthSixExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(6, 'months').get('month')).reduce((total, currentExpense)=> total + parseFloat(currentExpense.amount),0),
-    monthSevenExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(7, 'months').get('month')).reduce((total, currentExpense)=> total + parseFloat(currentExpense.amount),0),
+    monthOneExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(1, 'months').get('month')).reduce((total, currentExpense) => total + parseFloat(currentExpense.amount), 0),
+    monthTwoExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(2, 'months').get('month')).reduce((total, currentExpense) => total + parseFloat(currentExpense.amount), 0),
+    monthThreeExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(3, 'months').get('month')).reduce((total, currentExpense) => total + parseFloat(currentExpense.amount), 0),
+    monthFourExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(4, 'months').get('month')).reduce((total, currentExpense) => total + parseFloat(currentExpense.amount), 0),
+    monthFiveExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(5, 'months').get('month')).reduce((total, currentExpense) => total + parseFloat(currentExpense.amount), 0),
+    monthSixExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(6, 'months').get('month')).reduce((total, currentExpense) => total + parseFloat(currentExpense.amount), 0),
+    monthSevenExpenses: state.expenses.filter((e) => moment(e.createdAt).get('month') === moment().subtract(7, 'months').get('month')).reduce((total, currentExpense) => total + parseFloat(currentExpense.amount), 0),
     last7Months: [
       moment().subtract(1, 'months').format('MMM', 'YYYY'),
       moment().subtract(2, 'months').format('MMM', 'YYYY'),
