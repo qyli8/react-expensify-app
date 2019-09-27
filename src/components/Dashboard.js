@@ -46,7 +46,7 @@ export const DashBoardPage = (props) => {
       <text            
       x={x}
       y={y}
-      fill="#8884d8"
+      fill="rgba(63, 81, 181, 0.9)"
       textAnchor={x > cx ? "start" : "end"}
       dominantBaseline="central">
         {`${data01[index].name} ${(percent * 100).toFixed(0)}%`}
