@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: 16
   },
   "list_footer":{
-    color: "purple",
+    color: "#3f51b5",
     textAlign: "right",
     fontSize: "15px"
   },

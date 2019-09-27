@@ -1,8 +1,7 @@
 .content-container{
   margin: 0 auto;
   padding:0 $m-size;
-  max-width: 80rem;
-  
+  max-width: 80rem; 
 }
 .edit-form-container{
   @media (min-width: $desktop-breakpoint){
@@ -10,3 +9,23 @@
   }
 
 }
+.flex-container{
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+}
+.flex-container{
+  font-size: 12px;
+  @media (min-width: $desktop-breakpoint){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+  }
+
+}
+.with_bottom_margin{
+  margin-bottom: 2%;
+}
+
+

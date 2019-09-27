@@ -33,7 +33,7 @@ const CustomMenuItem=withStyles(theme=>({
 const CustomInputLabel=withStyles(theme=>({
   root: {
     "fontSize":"medium",
-    color:"purple"
+    color:"#3f51b5"
   }
 }))(InputLabel)
 
@@ -76,7 +76,7 @@ export class ExpenseListFilters extends React.Component {
               startAdornment: <InputAdornment position="start"><SytledSearchIcon /></InputAdornment>,
               style: {
                 fontSize: "large",
-                color:"purple"
+                color:"#3f51b5"
               }
             }}
           />

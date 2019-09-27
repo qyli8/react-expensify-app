@@ -16,3 +16,17 @@
     width: 100%;
     padding: 0 10rem 0
   }
+  .dashboard_content-container{
+    margin: 0 auto 2%;
+    padding:0 $s-size;
+    max-width: 90rem; 
+  }
+.chart-container{
+  margin: 0 5px 0;
+  font-size: 12px;
+  
+  @media (max-width: $desktop-breakpoint){
+    margin: 0,
+  }
+  
+}

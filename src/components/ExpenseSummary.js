@@ -29,27 +29,43 @@ export const ExpenseSummary = (props) =>
   }
   const classes = useStyles();
   return(
+    <div>
+    {
+          props.path==="/dashboard"?
+    <div className="page-header-dashboard">
+      <div className="content-container">
+        <h2 className="page-header__title">Welcome <span>Chris Campbell </span></h2>
+
+        <Fab variant="extended" color="primary" aria-label="add" className={classes.buttonStyle} onClick={addExepnse} >
+          <AddCircle className={classes.extendedIcon} />
+          <span className={classes.addButtonFont}>Item</span>
+        </Fab>
+        
+        <Fab variant="extended" color="primary" aria-label="add" className={classes.buttonStyle} onClick={gotoExpanseDashboard} >
+          <span className={classes.addButtonFont}>Purchase History</span>
+        </Fab>
+       
+        </div>
+    </div>:
+
     <div className="page-header">
       <div className="content-container">
         <h2 className="page-header__title">Welcome <span>Chris Campbell </span></h2>
 
         <Fab variant="extended" color="primary" aria-label="add" className={classes.buttonStyle} onClick={addExepnse} >
           <AddCircle className={classes.extendedIcon} />
-          <span className={classes.addButtonFont}>expense</span>
+          <span className={classes.addButtonFont}>Item</span>
         </Fab>
-        {
-          props.path==="/dashboard"?
-        <Fab variant="extended" color="primary" aria-label="add" className={classes.buttonStyle} onClick={gotoExpanseDashboard} >
-          {/* <AddCircle className={classes.extendedIcon} /> */}
-          <span className={classes.addButtonFont}>Expense Record</span>
-        </Fab>:
           <Fab variant="extended" color="primary" aria-label="add" className={classes.buttonStyle} onClick={gotoDashboard} >
           {/* <AddCircle className={classes.extendedIcon} /> */}
           <span className={classes.addButtonFont}>Dashboard</span>
         </Fab>
-        }
+        
         </div>
     </div>
+     }
+    </div>
+    
   )
 }
 
