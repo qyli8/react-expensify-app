@@ -2,19 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ListItems from './ExpenseListItems';
 import selectExpenses from '../selectors/expenses'
-import {TotalItems, TotalCost} from '../actions/calculateExpenses'
+import { TotalItems, TotalCost } from '../actions/calculateExpenses'
 import numeral from 'numeral'
 import getVisibleExpenses from '../selectors/expenses'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableFooter from '@material-ui/core/TableFooter';
-import TableRow from '@material-ui/core/TableRow';
+import ExpenseListFilters from './ExpenseListFilters';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import TableHead from '@material-ui/core/TableHead';
 import Paper from '@material-ui/core/Paper';
 import Hidden from '@material-ui/core/Hidden';
-import { flexbox } from '@material-ui/system';
 
 // import TableSortLabel from '@material-ui/core/TableSortLabel';
 // import Checkbox from '@material-ui/core/Checkbox';
@@ -35,12 +33,13 @@ const useStyles = makeStyles(theme => ({
     },
     fontSize: 16
   },
-  "list_footer":{
+  "list_footer": {
     color: "#3f51b5",
     textAlign: "right",
-    fontSize: "15px"
+    fontSize: "15px",
+    marginBottom: "5%",
   },
-  "list_footer_span":{
+  "list_footer_span": {
     fontWeight: "bold"
   }
 }));
@@ -59,11 +58,12 @@ export const ExpenseList = (props) => {
 
   const classes = useStyles();
   return (
-    <div className="content-container">
+    <div>
       <Paper>
         <Table>
           <TableHead className={classes.header}>
             <Hidden smDown>
+              <ExpenseListFilters />
               <tr>
                 <CustomHeaderCell align="center" size="medium" variant="body">Product</CustomHeaderCell>
                 <CustomHeaderCell align="center" size="medium" variant="body">Date</CustomHeaderCell>
@@ -72,6 +72,7 @@ export const ExpenseList = (props) => {
               </tr>
             </Hidden>
             <Hidden mdUp>
+            <ExpenseListFilters />
               <tr >
                 <CustomHeaderCell align="center" size="medium" variant="body">Product</CustomHeaderCell>
               </tr>
@@ -79,7 +80,7 @@ export const ExpenseList = (props) => {
           </TableHead>
           <TableBody >
             {
-              props.expenses.length >0 &&
+              props.expenses.length > 0 &&
               props.expenses.map(ex => (
                 <ListItems {...ex} key={ex.id} />
               ))
@@ -103,11 +104,11 @@ export const ExpenseList = (props) => {
         }
       </Paper>
       <div>
-        <p className={classes["list_footer"]}>Viewing <span className={classes["list_footer_span"]}> 
-        {props.expenseCount} </span> {props.expenseWord} current expense 
+        <p className={classes["list_footer"]}>Viewing <span className={classes["list_footer_span"]}>
+          {props.expenseCount} </span> {props.expenseWord} current expense
         <span className={classes["list_footer_span"]}> {props.expenseTotal}</span></p>
       </div>
-     
+
 
     </div>
   )
@@ -119,7 +120,7 @@ const mapStateToProps = (state) => {
     expenses: selectExpenses(state.expenses, state.filter),
     expenseTotal: numeral(TotalCost(getVisibleExpenses(state.expenses, state.filter))).format('$0,0.00'),
     expenseCount: TotalItems(getVisibleExpenses(state.expenses, state.filter)),
-    expenseWord: TotalCost(getVisibleExpenses(state.expenses, state.filter))===1?'expense':'expenses'
+    expenseWord: TotalCost(getVisibleExpenses(state.expenses, state.filter)) === 1 ? 'expense' : 'expenses'
   }
 }
 

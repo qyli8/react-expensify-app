@@ -1,4 +1,6 @@
 import React from 'react';
+import {history} from '../routes/AppRouter'
+import {edit} from '../actions/path'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import moment from 'moment'
@@ -62,7 +64,9 @@ const useStyles = makeStyles(theme => ({
     fontSize: '17px'
   }
 }));
-export const ListItems = ({ description, amount, createdAt, id, removeExpense }) => {
+
+
+export const ListItems = ({ description, amount, createdAt, id, removeExpense, edit }) => {
   const CustomTableCell = withStyles(theme => ({
     body: {
       fontSize: 16
@@ -85,6 +89,12 @@ export const ListItems = ({ description, amount, createdAt, id, removeExpense })
 
   }
 
+  const editClick=()=>{
+    history.push(`/edit/${id}`)
+    edit('EDIT')
+
+  }
+
   return(
     <TableRow>
       <Hidden smDown>
@@ -93,8 +103,8 @@ export const ListItems = ({ description, amount, createdAt, id, removeExpense })
         <CustomTableCell align="center" size="medium" variant="body">{numeral(amount / 100).format('$0,0.00')}</CustomTableCell>
         <CustomTableCell align="center" size="medium" variant="body">
           <div className={classes.div}>
-            <Fab size="small" className={classes.fab} color="primary" aria-label="edit">
-              <Link className={classes.item_link} to={`/edit/${id}`}> <Edit className={classes.icon} /></Link>
+            <Fab size="small" className={classes.fab} onClick={editClick} color="primary" aria-label="edit">
+               <Edit className={classes.icon} />
             </Fab>
             <Fab size="small" className={classes.fab} color="secondary" aria-label="delete" onClick={handleOpen}>
               <DeleteForeverIcon className={classes.icon}/>
@@ -145,6 +155,7 @@ export const ListItems = ({ description, amount, createdAt, id, removeExpense })
 
 const matchDispatchaToProps = (dispatch) => ({
   removeExpense: (expense) => dispatch(removeExpense(expense)),
+  edit: (p)=>dispatch(edit(p))
 })
 
 

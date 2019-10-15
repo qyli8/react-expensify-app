@@ -6,13 +6,13 @@ import Header from '../components/Header'
 export const PrivateRoute = ({
   isAuthenticated, 
   component:Component,
+  setCurrentPath,
   ...restOfProps
 }) =>(
-  <Route {...restOfProps} component={(props)=>(
+  <Route setCurrentPath={setCurrentPath} {...restOfProps} component={(props)=>(
     isAuthenticated?(
       <div>
-        <Header />
-        <Component {...props}/>
+        <Component setCurrentPath={setCurrentPath} {...props}/>
       </div>
       ):(
         <Redirect to="/"/>

@@ -5,6 +5,7 @@ import {TotalItems, TotalCost} from '../actions/calculateExpenses'
 import numeral from 'numeral'
 import getVisibleExpenses from '../selectors/expenses'
 import { DateRangePicker } from 'react-dates'
+import TableCell from '@material-ui/core/TableCell';
 import Hidden from '@material-ui/core/Hidden';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -15,6 +16,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 // import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
+
+const CustomHeaderCell = withStyles(theme => ({
+  body: {
+    fontSize: 18,
+  },
+}))(TableCell);
 
 const CustomSelect = withStyles(theme => ({
   select: {
@@ -62,8 +69,58 @@ export class ExpenseListFilters extends React.Component {
   }
   render() {
     return (
-      <div className="content-container">
-        <div >
+      <tr>
+        <Hidden smDown>
+      <CustomHeaderCell >
+        <TextField
+          id="filled-search"
+          type="search"
+          fullWidth
+          className="input"
+          type="text"
+          onChange={this.onSetTextFilterChange}
+          placeholder="Search Expenses"
+          InputProps={{
+            startAdornment: <InputAdornment position="start"><SytledSearchIcon /></InputAdornment>,
+            style: {
+              fontSize: "large",
+              color:"#3f51b5"
+            }
+          }}
+        />
+      </CustomHeaderCell>
+      <CustomHeaderCell>
+        <div></div>
+
+      </CustomHeaderCell>
+      {/* <div className="input-group"> */}
+      
+          <CustomHeaderCell className="input-group__item">
+         
+            <div >
+            </div>
+           
+          </CustomHeaderCell>
+        
+        <CustomHeaderCell className="input-group__item">
+          <DateRangePicker
+            startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
+            startDateId="start"
+            endDate={this.props.filters.endDate} // momentPropTypes.momentObj or null,
+            endDateId="end"
+            onDatesChange={this.onDatesChange} // PropTypes.func.isRequired,
+            focusedInput={this.state.calendarFocused} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+            onFocusChange={this.onFocusChange} // PropTypes.func.isRequired,
+            numberOfMonths={1}
+            isOutsideRange={() => false}
+            showClearDates={true}
+          />
+        </CustomHeaderCell>
+        </Hidden>
+      {/* </div> */}
+      <Hidden mdUp>
+      <CustomHeaderCell>
+      <div >
           <TextField
             id="filled-search"
             type="search"
@@ -82,7 +139,7 @@ export class ExpenseListFilters extends React.Component {
           />
         </div>
         <div className="input-group">
-          <Hidden mdUp>
+    
             <div className="input-group__item">
               <div >
                 <CustomInputLabel htmlFor="age-helper">Sort By</CustomInputLabel>
@@ -96,7 +153,6 @@ export class ExpenseListFilters extends React.Component {
                 </CustomSelect>
               </div>
             </div>
-          </Hidden>
           <div className="input-group__item">
             <DateRangePicker
               startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
@@ -112,7 +168,10 @@ export class ExpenseListFilters extends React.Component {
             />
           </div>
         </div>
-      </div>
+        </CustomHeaderCell>
+        </Hidden>
+    </tr>
+      
 
     )
   }

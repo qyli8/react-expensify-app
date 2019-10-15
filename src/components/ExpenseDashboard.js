@@ -1,12 +1,10 @@
 import React from "react";
 import ExpenseList from './ExpenseList';
-import ExpenseListFilters from './ExpenseListFilters';
 import ExpenseSumary from './ExpenseSummary'
 export const ExpendDashBoardPage = () => (
-  <div className="bottom_margin">
+  <div >
     <ExpenseSumary />
-    <ExpenseListFilters />
-    <ExpenseList />
+    <ExpenseList /> 
   
   </div>
 );

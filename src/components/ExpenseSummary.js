@@ -1,8 +1,12 @@
 import React from 'react'
 import {history} from '../routes/AppRouter'
+import {connect} from 'react-redux'
+import {home, dashboard, create} from '../actions/path'
 import { makeStyles} from '@material-ui/core/styles';
 import AddCircle from '@material-ui/icons/AddCircle';
 import Fab from '@material-ui/core/Fab';
+
+
 const useStyles = makeStyles(theme => ({
   buttonStyle: {
     margin: theme.spacing(1),
@@ -20,12 +24,17 @@ export const ExpenseSummary = (props) =>
 {
   const addExepnse = ()=>{
     history.push("/create")
+    props.create("CREATE")
   }
   const gotoDashboard = ()=>{
     history.push("/dashboard")
+    props.home('DASHBOARD')
+
   }
   const gotoExpanseDashboard = ()=>{
     history.push("/home")
+    props.dashboard('HOME')
+
   }
   const classes = useStyles();
   return(
@@ -34,7 +43,6 @@ export const ExpenseSummary = (props) =>
           props.path==="/dashboard"?
     <div className="page-header-dashboard">
       <div className="content-container">
-        <h2 className="page-header__title">Welcome <span>Chris Campbell </span></h2>
 
         <Fab variant="extended" color="primary" aria-label="add" className={classes.buttonStyle} onClick={addExepnse} >
           <AddCircle className={classes.extendedIcon} />
@@ -50,7 +58,6 @@ export const ExpenseSummary = (props) =>
 
     <div className="page-header">
       <div className="content-container">
-        <h2 className="page-header__title">Welcome <span>Chris Campbell </span></h2>
 
         <Fab variant="extended" color="primary" aria-label="add" className={classes.buttonStyle} onClick={addExepnse} >
           <AddCircle className={classes.extendedIcon} />
@@ -69,7 +76,12 @@ export const ExpenseSummary = (props) =>
   )
 }
 
+const mapDispatchToProps =(dispatch)=>({
+  home: (path)=> dispatch(home(path)),
+  dashboard: (path)=> dispatch(dashboard(path)),
+  create: (path)=> dispatch(create(path))
+})
+
+export default connect(undefined,mapDispatchToProps)(ExpenseSummary);
 
 
-
-export default ExpenseSummary

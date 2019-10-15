@@ -5,10 +5,11 @@ import {Route, Redirect} from 'react-router-dom'
 export const PublicRoute = ({
   notAuthenticated,
   component: Component,
+  setCurrentPath,
   ...restOfProps
 })=>(
- <Route {...restOfProps} component={(props)=>(
-  notAuthenticated?(<Component {...props}/>):(<Redirect to="/dashboard"/>)
+ <Route setCurrentPath={setCurrentPath} {...restOfProps} component={(props)=>(
+  notAuthenticated?(<Component setCurrentPath={setCurrentPath} {...props}/>):(<Redirect to="/dashboard"/>)
   )
 }/>
 )

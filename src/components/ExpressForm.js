@@ -6,6 +6,8 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Assignment from '@material-ui/icons/Assignment'
 import AttachMoney from '@material-ui/icons/AttachMoney'
 import { withStyles} from '@material-ui/core/styles';
+import Fab from '@material-ui/core/Fab';
+
 
 // no param pass in means current time
 const now = moment();
@@ -23,6 +25,12 @@ const CustomMoneyIcon = withStyles(()=>({
   }
 }))(AttachMoney)
 
+const PrimaryButton = withStyles(()=>({
+  "extended":{
+    width: "15rem",
+    fontSize: "13px"
+  }
+}))(Fab)
 
 
 export default class ExpenseForm extends React.Component {
@@ -97,10 +105,10 @@ export default class ExpenseForm extends React.Component {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <CustomAssigment size="large"/>
+                      <CustomAssigment size="2.5rem"/>
                     </InputAdornment >),
                   style: {
-                    fontSize: "large",
+                    fontSize: "2rem",
                     marginBottom: "12px"
                   }
                 }}
@@ -116,10 +124,10 @@ export default class ExpenseForm extends React.Component {
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <CustomMoneyIcon size="large"/>
+                      <CustomMoneyIcon size="2.8rem"/>
                     </InputAdornment >),
                   style: {
-                    fontSize: "large",
+                    fontSize: "2rem",
                     marginBottom: "12px"
                   }
                 }}
@@ -136,7 +144,11 @@ export default class ExpenseForm extends React.Component {
               />
             </div>
           </div>
-          <button className="button-sytle__edit" >Save</button>
+
+          <PrimaryButton type="submit" variant="extended" color="primary" aria-label="add"   >
+          Save
+        </PrimaryButton>
+          {/* <button className="button-sytle__edit" >Save</button> */}
 
 
 
