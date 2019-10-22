@@ -18,7 +18,7 @@ const PrimaryButton = withStyles(() => ({
   }
 }))(Fab)
 
-export class AddExpensePage extends React.Component {
+export class AddExpense extends React.Component {
   onSubmit = (expense) => {
     this.props.addExpense(expense);
     this.props.history.push('/home')
@@ -32,17 +32,17 @@ export class AddExpensePage extends React.Component {
   render() {
     return (
       <div className="page-form_padding">
+        <div>
         <CustomPaper>
           <ExpenseForm
             onSubmit={this.onSubmit}
           />
-
           <PrimaryButton onClick={this.cancel} variant="extended" color="primary" aria-label="cancel"   >
             Cancel
         </PrimaryButton>
         </CustomPaper>
       </div>
-
+      </div>
     )
   }
 }
@@ -52,4 +52,4 @@ const matchDispatchToProps = (dispatch) => ({
   home: (path) => dispatch(home(path)),
 })
 
-export default connect(undefined, matchDispatchToProps)(AddExpensePage)
+export default connect(undefined, matchDispatchToProps)(AddExpense)

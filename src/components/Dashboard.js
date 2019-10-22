@@ -1,5 +1,6 @@
+
 import React from "react";
-import ExpenseSumary from './ExpenseSummary'
+import ExpensePageOptions from './ExpensePageOptions'
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import moment from 'moment';
@@ -19,7 +20,7 @@ import {
 } from 'recharts'
 import Paper from '@material-ui/core/Paper'
 
-export const DashBoardPage = (props) => {
+export const DashBoard = (props) => {
 
   const data01 = [
     {
@@ -118,7 +119,7 @@ export const DashBoardPage = (props) => {
 
   return (
     <div>
-      <ExpenseSumary path={props.match.path} />
+      <ExpensePageOptions path={props.match.path} />
       <div className="flex-container">
         <div style={{ 'flexGrow': '0.2' }}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>           
@@ -217,4 +218,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(DashBoardPage);
+export default connect(mapStateToProps)(DashBoard);

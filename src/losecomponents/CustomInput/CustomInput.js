@@ -9,7 +9,7 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 
-import styles from "assets/jss/material-kit-react/components/customInputStyle.js";
+import styles from "../../assets/jss/material-kit-react/components/customInputStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -24,7 +24,9 @@ export default function CustomInput(props) {
     error,
     white,
     inputRootCustomClasses,
-    success
+    success,
+    value,
+    onChange
   } = props;
 
   const labelClasses = classNames({
@@ -73,6 +75,10 @@ export default function CustomInput(props) {
         }}
         id={id}
         {...inputProps}
+        onChange={onChange}
+        value={value}
+
+
       />
     </FormControl>
   );

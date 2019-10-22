@@ -5,28 +5,29 @@ import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Assignment from '@material-ui/icons/Assignment'
 import AttachMoney from '@material-ui/icons/AttachMoney'
-import { withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
+import CustomInput from '../losecomponents/CustomInput/CustomInput'
 
 
 // no param pass in means current time
 const now = moment();
 // console.log(now.format('MMM Do, YYYY'))
- 
-const CustomAssigment = withStyles( (theme) =>({
-  "root":{
+
+const CustomAssigment = withStyles((theme) => ({
+  "root": {
     fontSize: "19px"
   }
 
 }))(Assignment)
-const CustomMoneyIcon = withStyles(()=>({
-  "root":{
+const CustomMoneyIcon = withStyles(() => ({
+  "root": {
     fontSize: "21px"
   }
 }))(AttachMoney)
 
-const PrimaryButton = withStyles(()=>({
-  "extended":{
+const PrimaryButton = withStyles(() => ({
+  "extended": {
     width: "15rem",
     fontSize: "13px"
   }
@@ -92,11 +93,11 @@ export default class ExpenseForm extends React.Component {
   }
   render() {
     return (
-    
-        <div>
+
+      <div>
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.onSubmit} >
-        <TextField
+          {/* <TextField
                 id="input-with-icon-textfield"
                 value={this.state.description}
                 fullWidth
@@ -112,28 +113,47 @@ export default class ExpenseForm extends React.Component {
                     marginBottom: "12px"
                   }
                 }}
-              />
+              /> */}
+
+          <CustomInput
+            id="float"
+            formControlProps={{
+              fullWidth: true
+            }}
+            inputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <CustomAssigment size="2.5rem" />
+                </InputAdornment>
+              ),
+              placeholder: "Description",
+            }}
+            value={this.state.description}
+            onChange={this.onDescriptionChange}
+
+          />
+
           <div className="input-group">
             <div className="input-group__item">
-            <TextField
-                id="input-with-icon-textfield"
-                fullWidth
-                placeholder="Amount"
-                value={this.state.amount}
-                onChange={this.onAmountChange}
-                InputProps={{
+              <CustomInput
+                placeholder='Cost'
+                id="float"
+                formControlProps={{
+                  fullWidth: true
+                }}
+                inputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
-                      <CustomMoneyIcon size="2.8rem"/>
+                      <CustomMoneyIcon size="2.5rem" />
                     </InputAdornment >),
-                  style: {
-                    fontSize: "2rem",
-                    marginBottom: "12px"
-                  }
+                  placeholder: "Cost",
                 }}
+                value={this.state.amount}
+                onChange={this.onAmountChange}
+
               />
             </div>
-            <div className="input-group__item">
+            <div className="input-group__date">
               <SingleDatePicker
                 date={this.state.createdAt}
                 onDateChange={this.onDateChange}
@@ -146,14 +166,14 @@ export default class ExpenseForm extends React.Component {
           </div>
 
           <PrimaryButton type="submit" variant="extended" color="primary" aria-label="add"   >
-          Save
+            Save
         </PrimaryButton>
           {/* <button className="button-sytle__edit" >Save</button> */}
 
 
 
         </form>
-        </div>
+      </div>
     )
   }
 }

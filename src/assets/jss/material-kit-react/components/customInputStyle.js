@@ -3,7 +3,7 @@ import {
   dangerColor,
   successColor,
   defaultFont
-} from "../assets/jss/material-kit-react.js";
+} from "../../../jss/material-kit-react";
 
 const customInputStyle = {
   disabled: {
@@ -42,7 +42,7 @@ const customInputStyle = {
     ...defaultFont,
     color: "#AAAAAA !important",
     fontWeight: "400",
-    fontSize: "14px",
+    fontSize: "2rem",
     lineHeight: "1.42857",
     top: "10px",
     letterSpacing: "unset",
@@ -68,7 +68,7 @@ const customInputStyle = {
     color: "#495057",
     height: "unset",
     "&,&::placeholder": {
-      fontSize: "14px",
+      fontSize: "2rem",
       fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
       fontWeight: "400",
       lineHeight: "1.42857",
