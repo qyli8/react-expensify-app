@@ -10,8 +10,7 @@ import Icon from "@material-ui/core/Icon";
 import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
 // core ../losecomponents
-import Header from "../losecomponents/Header/Header.js";
-import HeaderLinks from "../losecomponents/Header/HeaderLinks.js";
+
 import Footer from "../losecomponents/Footer/Footer.js";
 import GridContainer from "../losecomponents/Grid/GridContainer.js";
 import GridItem from "../losecomponents/Grid/GridItem.js";
@@ -27,7 +26,14 @@ import styles from "../assets/jss/material-kit-react/views/loginPage.js";
 // import image from "/images/bg.jpg";
 
 const useStyles = makeStyles(styles);
-
+const useCustomStyles = makeStyles({
+  loginHeading:{
+    fontSize: "2.5rem"
+  },
+  loginButton:{
+    fontSize: "2rem"
+  }
+})
 export const LoginPage=(props) => {
   const goToDashboard=()=>{
     props.history.push("/dashboard")
@@ -40,16 +46,10 @@ export const LoginPage=(props) => {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
-  const { ...rest } = props;
+  const customClasses= useCustomStyles();
   return (
     <div>
-      <Header
-        absolute
-        color="transparent"
-        brand="Material Kit React"
-        rightLinks={<HeaderLinks />}
-        {...rest}
-      />
+    
       <div
         className={classes.pageHeader}
         style={{
@@ -64,42 +64,13 @@ export const LoginPage=(props) => {
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Login</h4>
-                    <div className={classes.socialLine}>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e =>{ e.preventDefault(); goToDashboard()}}
-                      >
-                        <i className={"fab fa-twitter"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-facebook"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-google-plus-g"} />
-                      </Button>
-                    </div>
+                    <h4 className={customClasses.loginHeading}>Login</h4>
                   </CardHeader>
-                  <p className={classes.divider}>Or Be Classical</p>
                   <CardBody>
                     <CustomInput
-                      labelText="First Name..."
+                      labelText="Username"
                       id="first"
+                      value="Joanna567"
                       formControlProps={{
                         fullWidth: true
                       }}
@@ -113,23 +84,9 @@ export const LoginPage=(props) => {
                       }}
                     />
                     <CustomInput
-                      labelText="Email..."
-                      id="email"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "email",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Email className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    <CustomInput
                       labelText="Password"
                       id="pass"
+                      value="abcefg"
                       formControlProps={{
                         fullWidth: true
                       }}
@@ -147,8 +104,8 @@ export const LoginPage=(props) => {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
-                      Get started
+                    <Button className={customClasses.loginButton} simple color="primary" size="lg" onClick={goToDashboard}>
+                      ENTER
                     </Button>
                   </CardFooter>
                 </form>

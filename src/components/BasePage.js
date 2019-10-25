@@ -11,7 +11,8 @@ import Footer from "../losecomponents/Footer/Footer.js";
 import GridContainer from "../losecomponents/Grid/GridContainer.js";
 import GridItem from "../losecomponents/Grid/GridItem.js";
 import Parallax from "../losecomponents/Parallax/Parallax.js";
-
+import Header from "../losecomponents/Header/Header.js";
+import HeaderLinks from "../losecomponents/Header/HeaderLinks.js";
 import styles from "../assets/jss/material-kit-react/views/components.js";
 
 const useStyles = makeStyles(styles);
@@ -20,9 +21,16 @@ const BasePage = (props) => {
   const classes = useStyles();
   // const { ...rest } = props;
   const Component = props.component
+  const { ...rest } = props;
  
   return (
       <div>
+          <Header
+        absolute
+        color="transparent"
+        rightLinks={<HeaderLinks />}
+        {...rest}
+      />        
         <Parallax small image="../assets/img/lp.jpg">
           <div className={classes.container}>
             <GridContainer>
