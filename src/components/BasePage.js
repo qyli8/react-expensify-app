@@ -14,7 +14,7 @@ import Parallax from "../losecomponents/Parallax/Parallax.js";
 import Header from "../losecomponents/Header/Header.js";
 import HeaderLinks from "../losecomponents/Header/HeaderLinks.js";
 import styles from "../assets/jss/material-kit-react/views/components.js";
-
+import {history} from '../routes/AppRouter'
 const useStyles = makeStyles(styles);
 const BasePage = (props) => {
   console.log('basepage props: ', props)

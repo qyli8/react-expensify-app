@@ -104,8 +104,7 @@ export const LoginPage=(props) => {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button className={customClasses.loginButton} simple color="primary" size="lg" onClick={goToDashboard}>
-                      ENTER
+                    <Button children="ENTER" className={customClasses.loginButton} simple color="primary" size="lg" onClick={goToDashboard}>
                     </Button>
                   </CardFooter>
                 </form>

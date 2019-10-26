@@ -20,7 +20,6 @@ const RegularButton = React.forwardRef((props, ref) => {
   const {
     color,
     round,
-    children,
     fullWidth,
     disabled,
     simple,
@@ -49,7 +48,7 @@ const RegularButton = React.forwardRef((props, ref) => {
   });
   return (
     <Button {...rest} ref={ref} className={btnClasses}>
-      {children}
+      {/* {children} */}
     </Button>
   );
 });
@@ -77,7 +76,6 @@ RegularButton.propTypes = {
   block: PropTypes.bool,
   link: PropTypes.bool,
   justIcon: PropTypes.bool,
-  children: PropTypes.node,
   className: PropTypes.string
 };
 

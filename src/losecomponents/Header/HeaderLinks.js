@@ -1,7 +1,9 @@
 /*eslint-disable*/
 import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
+import {logout} from '../../actions/auth'
+import {connect} from 'react-redux'
+
+import {history} from '../../routes/AppRouter'
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
@@ -22,11 +24,13 @@ import Button from "../CustomButtons/Button.js";
 import styles from "../../assets/jss/material-kit-react/components/headerLinksStyle.js";
 
 const useStyles = makeStyles(styles);
-const logoutAccount=()=>{
-  history.push('/')
-  props.logout('UNAUTHORIZED')
-}
-export default function HeaderLinks(props) {
+
+export const HeaderLinks =(props)=> {
+  const logoutAccount=()=>{
+    history.push('/')
+    props.logout('UNAUTHORIZED')
+    console.log()
+  }
   const classes = useStyles();
   return (
     <List className={classes.list}>
@@ -121,3 +125,8 @@ export default function HeaderLinks(props) {
     </List>
   );
 }
+const mapDispatchToProps =(dispatch)=>({
+  logout: (status)=> dispatch(logout(status))
+})
+
+export default connect(undefined,mapDispatchToProps)(HeaderLinks);
