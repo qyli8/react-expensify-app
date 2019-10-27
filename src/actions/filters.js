@@ -12,6 +12,9 @@ export const sortByDate=()=>({
 export const sortByAmount=()=>({
   type:'SORT_BY_AMOUNT'
 })
+export const sortByAmountAsc=()=>({
+  type:'SORT_BY_AMOUNT_ASC'
+})
 //SET_START_DATE
 export const setStartDate=(startDate)=>({
   type:'SET_START_DATE',

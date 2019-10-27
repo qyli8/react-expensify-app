@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {sortByAmount, sortByAmountAsc} from '../actions/filters';
 import ListItems from './ExpenseListItems';
 import selectExpenses from '../selectors/expenses'
 import { TotalItems, TotalCost } from '../actions/calculateExpenses'
@@ -13,6 +14,7 @@ import { withStyles, makeStyles } from '@material-ui/core/styles';
 import TableHead from '@material-ui/core/TableHead';
 import Paper from '@material-ui/core/Paper';
 import Hidden from '@material-ui/core/Hidden';
+import TableSortLabel from "@material-ui/core/TableSortLabel";
 
 // import TableSortLabel from '@material-ui/core/TableSortLabel';
 // import Checkbox from '@material-ui/core/Checkbox';
@@ -55,7 +57,9 @@ export const ExpenseList = (props) => {
     },
   }))(TableCell);
 
-
+  const amountSortHandler =(order, sortByAsc, sortByDesc)=>{
+    order==="desc"? sortByAsc(): sortByDesc()
+  }
   const classes = useStyles();
   return (
     <div>
@@ -67,7 +71,20 @@ export const ExpenseList = (props) => {
               <tr>
                 <CustomHeaderCell align="center" size="medium" variant="body">Product</CustomHeaderCell>
                 <CustomHeaderCell align="center" size="medium" variant="body">Date</CustomHeaderCell>
-                <CustomHeaderCell align="center" size="medium" variant="body">Amount</CustomHeaderCell>
+                <CustomHeaderCell align="center" size="medium" variant="body">
+                <TableSortLabel
+              active={true}
+              direction={props.order}
+              onClick={()=>{amountSortHandler(props.order, props.sortByAmountAsc, props.sortByAmount)}}
+            >
+               Amount
+              {/* {orderBy === headCell.id ? (
+                <span className={classes.visuallyHidden}>
+                  {order === "desc" ? "sorted descending" : "sorted ascending"}
+                </span>
+              ) : null} */}
+            </TableSortLabel>
+                 </CustomHeaderCell>
                 <CustomHeaderCell align="center" size="medium" variant="body">Actions</CustomHeaderCell>
               </tr>
             </Hidden>
@@ -118,12 +135,18 @@ const mapStateToProps = (state) => {
   return {
     // redux state to be used as prop(s) of a componment inside the HigerOrderComponent (configured when redux store is created)
     expenses: selectExpenses(state.expenses, state.filter),
+    order: state.filter.order,
     expenseTotal: numeral(TotalCost(getVisibleExpenses(state.expenses, state.filter))).format('$0,0.00'),
     expenseCount: TotalItems(getVisibleExpenses(state.expenses, state.filter)),
     expenseWord: TotalCost(getVisibleExpenses(state.expenses, state.filter)) === 1 ? 'expense' : 'expenses'
+    
   }
 }
 
+const matchDispatchToProps = (dispatch) => ({
+  sortByAmount: () => dispatch(sortByAmount()),
+  sortByAmountAsc: () => dispatch(sortByAmountAsc())
+})
 
 
-export default connect(mapStateToProps)(ExpenseList)
+export default connect(mapStateToProps, matchDispatchToProps)(ExpenseList)

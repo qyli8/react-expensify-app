@@ -4,7 +4,8 @@ const filterReducerDefaultState={
   text:'',
   sortBy:'date',// date or amount
   startDate: moment().startOf('month'),
-  endDate: moment().endOf('month')
+  endDate: moment().endOf('month'),
+  order: 'desc'
 }
 
 const filterReducer =(state=filterReducerDefaultState, action)=>{
@@ -17,7 +18,8 @@ const filterReducer =(state=filterReducerDefaultState, action)=>{
     case'SORT_BY_AMOUNT':
       return({
         ...state,
-        sortBy:"amount"
+        sortBy:"amount",
+        order: "desc"
       })
     case'SORT_BY_DATE':
       return({
@@ -33,6 +35,12 @@ const filterReducer =(state=filterReducerDefaultState, action)=>{
       return({
         ...state,
         endDate:action.endDate
+      })
+    case'SORT_BY_AMOUNT_ASC':
+      return({
+        ...state,
+        sortBy:"amount",
+        order: "asc"
       })
     default:
       return state
