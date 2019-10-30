@@ -8,7 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 
 const CustomPaper = withStyles(() => ({
-  root: { padding: "10px" }
+  root: { padding: "30px" }
 }))(Paper)
 const PrimaryButton = withStyles(() => ({
   "extended": {

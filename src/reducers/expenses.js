@@ -27,7 +27,7 @@ const expensesReducerDefaultState=[
   id:uuid(),
   description: 'item 10',
   note:'abcd',
-  amount:'34.0',
+  amount:'034.0',
   createdAt:moment().subtract(1, 'months').valueOf()
 },
 {
@@ -41,7 +41,7 @@ const expensesReducerDefaultState=[
   id:uuid(),
   description: 'item 8',
   note:'abcd',
-  amount:'34.0',
+  amount:'034.0',
   createdAt:moment().subtract(2, 'months').valueOf()
 },
 {
@@ -69,7 +69,7 @@ const expensesReducerDefaultState=[
   id:uuid(),
   description: 'item 4',
   note:'abcd',
-  amount:'34.0',
+  amount:'034.0',
   createdAt:moment().subtract(3, 'months').valueOf()
 },
 {
@@ -97,7 +97,7 @@ const expensesReducerDefaultState=[
   id:uuid(),
   description: 'item abc',
   note:'abcd',
-  amount:'34.0',
+  amount:'034.0',
   createdAt:moment().subtract(5, 'months').valueOf()
 },
 {
@@ -111,7 +111,7 @@ const expensesReducerDefaultState=[
   id:uuid(),
   description: 'item hij',
   note:'abcd',
-  amount:'34.0',
+  amount:'034.0',
   createdAt:moment().subtract(6, 'months').valueOf()
 },
 {

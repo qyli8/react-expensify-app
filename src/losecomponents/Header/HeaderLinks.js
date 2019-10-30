@@ -15,7 +15,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
 import  Apps from "@material-ui/icons/Apps";
-import CloudDownload  from "@material-ui/icons/CloudDownload"
+import ScreenLockPortrait  from "@material-ui/icons/ScreenLockPortrait"
 
 // core components
 import CustomDropdown from "../CustomDropdown/CustomDropdown.js";
@@ -63,7 +63,7 @@ export const HeaderLinks =(props)=> {
           color="transparent"
           className={classes.navLink}
         >
-          <CloudDownload className={classes.icons} /> Logout
+          <ScreenLockPortrait className={classes.icons} /> Logout
         </Button>
       </ListItem>
       {/* <ListItem className={classes.listItem}>

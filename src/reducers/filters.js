@@ -19,12 +19,19 @@ const filterReducer =(state=filterReducerDefaultState, action)=>{
       return({
         ...state,
         sortBy:"amount",
-        order: "desc"
+        order: "desc",
       })
     case'SORT_BY_DATE':
       return({
         ...state,
-        sortBy:"date"
+        sortBy:"date",
+        order: "desc",
+      })
+    case'SORT_BY_DATE_ASC':
+      return({
+        ...state,
+        sortBy:"date",
+        order: "asc",
       })
     case 'SET_START_DATE':
       return({

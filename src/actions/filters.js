@@ -8,6 +8,9 @@ export const setTextFilter = (text='')=>({
 export const sortByDate=()=>({
   type:'SORT_BY_DATE'
 })
+export const sortByDateAsc=()=>({
+  type:'SORT_BY_DATE_ASC'
+})
 //SORT_BY_AMOUNT
 export const sortByAmount=()=>({
   type:'SORT_BY_AMOUNT'

@@ -124,7 +124,7 @@ export const DashBoard = (props) => {
         <div style={{ 'flexGrow': '0.2' }}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>           
             <div className="chart-container">
-            <Paper className={classes.paper} >
+            <div className={classes.paper} >
               <div style={styles.pieChartDiv}>
                 <ResponsiveContainer width="95%" height="100%">
                   <PieChart>
@@ -143,10 +143,10 @@ export const DashBoard = (props) => {
                   </PieChart>
                 </ResponsiveContainer>
               </div>
-            </Paper>
+            </div>
             </div>
             <div className="chart-container">
-            <Paper className={classes.paper} >
+            <div className={classes.paper} >
               <div style={styles.pieChartDiv}>
                 <ResponsiveContainer width="95%" height="100%">
                   <BarChart data={data}>
@@ -159,7 +159,7 @@ export const DashBoard = (props) => {
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-            </Paper>
+            </div>
             </div>
           </div>
         </div>
