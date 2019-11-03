@@ -10,14 +10,14 @@ exports[`should render Header corretly 1`] = `
     <div
       className="header_content"
     >
-      <Link
+      <[object Object]
         className="header_title"
         to="/home"
       >
         <h1>
           Expensify
         </h1>
-      </Link>
+      </[object Object]>
       <button
         onClick={[Function]}
       >

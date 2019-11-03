@@ -128,34 +128,60 @@ exports[`should render error for invalid form submission 1`] = `
   <form
     onSubmit={[Function]}
   >
+    <CustomInput
+      formControlProps={
+        Object {
+          "fullWidth": true,
+        }
+      }
+      id="float"
+      inputProps={
+        Object {
+          "placeholder": "Description",
+          "startAdornment": <Unknown
+            position="start"
+        >
+            <Unknown
+                size="2.5rem"
+            />
+        </Unknown>,
+        }
+      }
+      onChange={[Function]}
+      value=""
+    />
     <div
       className="input-group"
     >
       <div
-        className="input-group__itemLong"
+        className="input-group__item"
       >
-        <input
-          autoFocus={true}
-          className="input__long"
+        <CustomInput
+          formControlProps={
+            Object {
+              "fullWidth": true,
+            }
+          }
+          id="float"
+          inputProps={
+            Object {
+              "placeholder": "Cost",
+              "startAdornment": <Unknown
+                position="start"
+            >
+                <Unknown
+                    size="2.5rem"
+                />
+            </Unknown>,
+            }
+          }
           onChange={[Function]}
-          placeholder="Description"
-          type="text"
+          placeholder="Cost"
           value=""
         />
       </div>
       <div
-        className="input-group__item"
-      >
-        <input
-          className="input"
-          onChange={[Function]}
-          placeholder="Amount"
-          type="text"
-          value=""
-        />
-      </div>
-      <div
-        className="input-group__item"
+        className="input-group__date"
       >
         <SingleDatePicker
           anchorDirection="left"
@@ -231,17 +257,14 @@ exports[`should render error for invalid form submission 1`] = `
         />
       </div>
     </div>
-    <textarea
-      className="textarea"
-      onChange={[Function]}
-      placeholder="Add a note for your expense (optional)"
-      value=""
-    />
-    <button
-      className="button-sytle__edit"
+    <[object Object]
+      aria-label="add"
+      color="primary"
+      type="submit"
+      variant="extended"
     >
       Save
-    </button>
+    </[object Object]>
   </form>
 </div>
 `;
@@ -254,34 +277,60 @@ exports[`should render error for invalid form submission 2`] = `
   <form
     onSubmit={[Function]}
   >
+    <CustomInput
+      formControlProps={
+        Object {
+          "fullWidth": true,
+        }
+      }
+      id="float"
+      inputProps={
+        Object {
+          "placeholder": "Description",
+          "startAdornment": <Unknown
+            position="start"
+        >
+            <Unknown
+                size="2.5rem"
+            />
+        </Unknown>,
+        }
+      }
+      onChange={[Function]}
+      value=""
+    />
     <div
       className="input-group"
     >
       <div
-        className="input-group__itemLong"
+        className="input-group__item"
       >
-        <input
-          autoFocus={true}
-          className="input__long"
+        <CustomInput
+          formControlProps={
+            Object {
+              "fullWidth": true,
+            }
+          }
+          id="float"
+          inputProps={
+            Object {
+              "placeholder": "Cost",
+              "startAdornment": <Unknown
+                position="start"
+            >
+                <Unknown
+                    size="2.5rem"
+                />
+            </Unknown>,
+            }
+          }
           onChange={[Function]}
-          placeholder="Description"
-          type="text"
+          placeholder="Cost"
           value=""
         />
       </div>
       <div
-        className="input-group__item"
-      >
-        <input
-          className="input"
-          onChange={[Function]}
-          placeholder="Amount"
-          type="text"
-          value=""
-        />
-      </div>
-      <div
-        className="input-group__item"
+        className="input-group__date"
       >
         <SingleDatePicker
           anchorDirection="left"
@@ -357,17 +406,14 @@ exports[`should render error for invalid form submission 2`] = `
         />
       </div>
     </div>
-    <textarea
-      className="textarea"
-      onChange={[Function]}
-      placeholder="Add a note for your expense (optional)"
-      value=""
-    />
-    <button
-      className="button-sytle__edit"
+    <[object Object]
+      aria-label="add"
+      color="primary"
+      type="submit"
+      variant="extended"
     >
       Save
-    </button>
+    </[object Object]>
   </form>
 </div>
 `;
@@ -377,34 +423,60 @@ exports[`should return expense form 1`] = `
   <form
     onSubmit={[Function]}
   >
+    <CustomInput
+      formControlProps={
+        Object {
+          "fullWidth": true,
+        }
+      }
+      id="float"
+      inputProps={
+        Object {
+          "placeholder": "Description",
+          "startAdornment": <Unknown
+            position="start"
+        >
+            <Unknown
+                size="2.5rem"
+            />
+        </Unknown>,
+        }
+      }
+      onChange={[Function]}
+      value=""
+    />
     <div
       className="input-group"
     >
       <div
-        className="input-group__itemLong"
+        className="input-group__item"
       >
-        <input
-          autoFocus={true}
-          className="input__long"
+        <CustomInput
+          formControlProps={
+            Object {
+              "fullWidth": true,
+            }
+          }
+          id="float"
+          inputProps={
+            Object {
+              "placeholder": "Cost",
+              "startAdornment": <Unknown
+                position="start"
+            >
+                <Unknown
+                    size="2.5rem"
+                />
+            </Unknown>,
+            }
+          }
           onChange={[Function]}
-          placeholder="Description"
-          type="text"
+          placeholder="Cost"
           value=""
         />
       </div>
       <div
-        className="input-group__item"
-      >
-        <input
-          className="input"
-          onChange={[Function]}
-          placeholder="Amount"
-          type="text"
-          value=""
-        />
-      </div>
-      <div
-        className="input-group__item"
+        className="input-group__date"
       >
         <SingleDatePicker
           anchorDirection="left"
@@ -480,17 +552,14 @@ exports[`should return expense form 1`] = `
         />
       </div>
     </div>
-    <textarea
-      className="textarea"
-      onChange={[Function]}
-      placeholder="Add a note for your expense (optional)"
-      value=""
-    />
-    <button
-      className="button-sytle__edit"
+    <[object Object]
+      aria-label="add"
+      color="primary"
+      type="submit"
+      variant="extended"
     >
       Save
-    </button>
+    </[object Object]>
   </form>
 </div>
 `;
@@ -500,34 +569,60 @@ exports[`should return expense form with expese data 1`] = `
   <form
     onSubmit={[Function]}
   >
+    <CustomInput
+      formControlProps={
+        Object {
+          "fullWidth": true,
+        }
+      }
+      id="float"
+      inputProps={
+        Object {
+          "placeholder": "Description",
+          "startAdornment": <Unknown
+            position="start"
+        >
+            <Unknown
+                size="2.5rem"
+            />
+        </Unknown>,
+        }
+      }
+      onChange={[Function]}
+      value="item 2"
+    />
     <div
       className="input-group"
     >
       <div
-        className="input-group__itemLong"
-      >
-        <input
-          autoFocus={true}
-          className="input__long"
-          onChange={[Function]}
-          placeholder="Description"
-          type="text"
-          value="item 2"
-        />
-      </div>
-      <div
         className="input-group__item"
       >
-        <input
-          className="input"
+        <CustomInput
+          formControlProps={
+            Object {
+              "fullWidth": true,
+            }
+          }
+          id="float"
+          inputProps={
+            Object {
+              "placeholder": "Cost",
+              "startAdornment": <Unknown
+                position="start"
+            >
+                <Unknown
+                    size="2.5rem"
+                />
+            </Unknown>,
+            }
+          }
           onChange={[Function]}
-          placeholder="Amount"
-          type="text"
+          placeholder="Cost"
           value="50670"
         />
       </div>
       <div
-        className="input-group__item"
+        className="input-group__date"
       >
         <SingleDatePicker
           anchorDirection="left"
@@ -603,17 +698,14 @@ exports[`should return expense form with expese data 1`] = `
         />
       </div>
     </div>
-    <textarea
-      className="textarea"
-      onChange={[Function]}
-      placeholder="Add a note for your expense (optional)"
-      value=""
-    />
-    <button
-      className="button-sytle__edit"
+    <[object Object]
+      aria-label="add"
+      color="primary"
+      type="submit"
+      variant="extended"
     >
       Save
-    </button>
+    </[object Object]>
   </form>
 </div>
 `;

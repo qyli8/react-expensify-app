@@ -3,10 +3,10 @@
 exports[`should return page not found 1`] = `
 <div>
   Page Not Found 404 -
-  <Link
+  <[object Object]
     to="/"
   >
     Go Home
-  </Link>
+  </[object Object]>
 </div>
 `;

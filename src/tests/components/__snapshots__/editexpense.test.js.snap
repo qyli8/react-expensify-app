@@ -3,42 +3,47 @@
 exports[`should render edit expense 1`] = `
 <div>
   <div
-    className="page-header"
-  >
-    <div
-      className="content-container"
-    >
-      <h2
-        className="page-header__title"
-      >
-        Edit Expense
-      </h2>
-    </div>
-  </div>
-  <div
-    className="content-container"
+    className="page-form_padding"
   >
     <div
       className="edit-form-container"
     >
-      <ExpenseForm
-        expense={
-          Object {
-            "amount": "5067000",
-            "createdAt": -345600000,
-            "description": "item 2",
-            "id": "2",
-            "note": "",
-          }
-        }
-        onSubmit={[Function]}
-      />
-      <button
-        className="button-sytle__secondary"
-        onClick={[Function]}
+      <[object Object]
+        width="75%"
       >
-        Remove
-      </button>
+        <ExpenseForm
+          expense={
+            Object {
+              "amount": "5067000",
+              "createdAt": -345600000,
+              "description": "item 2",
+              "id": "2",
+              "note": "",
+            }
+          }
+          onSubmit={[Function]}
+        />
+        <div
+          className="button_group"
+        >
+          <[object Object]
+            aria-label="cancel"
+            color="primary"
+            onClick={[Function]}
+            variant="extended"
+          >
+            Cancel
+          </[object Object]>
+          <[object Object]
+            aria-label="remove"
+            color="secondary"
+            onClick={[Function]}
+            variant="extended"
+          >
+            Remove
+          </[object Object]>
+        </div>
+      </[object Object]>
     </div>
   </div>
 </div>

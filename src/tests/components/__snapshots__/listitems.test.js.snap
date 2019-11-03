@@ -1,27 +1,166 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should return ListItem 1`] = `
-<Link
-  className="list-item"
-  to="/edit/2"
->
-  <div>
-    <h4
-      className="list-item__title"
+<[object Object]>
+  <Hidden
+    smDown={true}
+  >
+    <[object Object]
+      align="center"
+      size="medium"
+      variant="body"
     >
       item 2
-    </h4>
-    <span
-      className="list-item__sub-title"
+    </[object Object]>
+    <[object Object]
+      align="center"
+      size="medium"
+      variant="body"
     >
       28th Dec, 1969
-    </span>
-  </div>
-  <h3
-    className="list-item__data"
+    </[object Object]>
+    <[object Object]
+      align="center"
+      size="medium"
+      variant="body"
+    >
+      $50,670.00
+    </[object Object]>
+    <[object Object]
+      align="center"
+      size="medium"
+      variant="body"
+    >
+      <div
+        className="makeStyles-div-3"
+      >
+        <[object Object]
+          aria-label="edit"
+          className="makeStyles-fab-4"
+          color="primary"
+          onClick={[Function]}
+          size="small"
+        >
+          <pure(Edit)
+            className="makeStyles-icon-2"
+          />
+        </[object Object]>
+        <[object Object]
+          aria-label="delete"
+          className="makeStyles-fab-4"
+          color="secondary"
+          onClick={[Function]}
+          size="small"
+        >
+          <pure(DeleteForever)
+            className="makeStyles-icon-2"
+          />
+        </[object Object]>
+        <DeleteModal
+          classes={
+            Object {
+              "div": "makeStyles-div-3",
+              "fab": "makeStyles-fab-4",
+              "icon": "makeStyles-icon-2",
+              "item_discription": "makeStyles-item_discription-7",
+              "item_link": "makeStyles-item_link-5",
+              "list_item": "makeStyles-list_item-6",
+              "modal": "makeStyles-modal-8",
+              "modle_message": "makeStyles-modle_message-11",
+              "modle_options": "makeStyles-modle_options-10",
+              "paper": "makeStyles-paper-9",
+              "root": "makeStyles-root-1",
+            }
+          }
+          description="item 2"
+          handleClose={[Function]}
+          open={false}
+          removeExpense={[Function]}
+        />
+      </div>
+    </[object Object]>
+  </Hidden>
+  <Hidden
+    mdUp={true}
   >
-    $50,670.00
-     
-  </h3>
-</Link>
+    <[object Object]>
+      <div
+        className="makeStyles-list_item-6"
+      >
+        <div>
+          <div>
+            <h3
+              className="list-item__title"
+            >
+              item 2
+            </h3>
+            <span
+              className="list-item__sub-title"
+            >
+              28th Dec, 1969
+            </span>
+          </div>
+          <h4
+            className="list-item__data"
+          >
+            $50,670.00
+             
+          </h4>
+        </div>
+        <div
+          className="makeStyles-div-3"
+        >
+          <[object Object]
+            aria-label="edit"
+            className="makeStyles-fab-4"
+            color="primary"
+            size="small"
+          >
+            <[object Object]
+              className="makeStyles-item_link-5"
+              to="/edit/2"
+            >
+               
+              <pure(Edit)
+                className="makeStyles-icon-2"
+              />
+            </[object Object]>
+          </[object Object]>
+          <[object Object]
+            aria-label="delete"
+            className="makeStyles-fab-4"
+            color="secondary"
+            onClick={[Function]}
+            size="small"
+          >
+            <pure(DeleteForever)
+              className="makeStyles-icon-2"
+            />
+          </[object Object]>
+          <DeleteModal
+            classes={
+              Object {
+                "div": "makeStyles-div-3",
+                "fab": "makeStyles-fab-4",
+                "icon": "makeStyles-icon-2",
+                "item_discription": "makeStyles-item_discription-7",
+                "item_link": "makeStyles-item_link-5",
+                "list_item": "makeStyles-list_item-6",
+                "modal": "makeStyles-modal-8",
+                "modle_message": "makeStyles-modle_message-11",
+                "modle_options": "makeStyles-modle_options-10",
+                "paper": "makeStyles-paper-9",
+                "root": "makeStyles-root-1",
+              }
+            }
+            description="item 2"
+            handleClose={[Function]}
+            open={false}
+            removeExpense={[Function]}
+          />
+        </div>
+      </div>
+    </[object Object]>
+  </Hidden>
+</[object Object]>
 `;
