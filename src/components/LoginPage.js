@@ -23,7 +23,6 @@ import CustomInput from "../losecomponents/CustomInput/CustomInput.js";
 
 import styles from "../assets/jss/material-kit-react/views/loginPage.js";
 
-// import image from "/images/bg.jpg";
 
 const useStyles = makeStyles(styles);
 const useCustomStyles = makeStyles({
@@ -53,7 +52,7 @@ export const LoginPage=(props) => {
       <div
         className={classes.pageHeader}
         style={{
-          backgroundImage: `url(${'/images/bg.jpg'})`,
+          backgroundColor: "#696969",
           backgroundSize: "cover",
           backgroundPosition: "top center"
         }}
