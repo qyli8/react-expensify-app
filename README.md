@@ -27,3 +27,16 @@ npm install
 npm run dev-server
 # or yarn
 yarn run dev-server
+
+## you might see below output
+#i ｢wds｣: Project is running at http://localhost:8080/
+#i ｢wds｣: webpack output is served from /dist/
+#i ｢wds｣: Content not from webpack is served from D:\ReactLearning\react-course-project\expensify-app-React16\public
+#i ｢wds｣: 404s will fallback to /index.html
+#i ｢wdm｣: Hash: 99b239a9632db4d1a630
+#Version: webpack 4.3.0
+#Time: 20056ms
+#Built at: 11/3/2019 5:41:02 PM
+#     Asset      Size  Chunks             Chunk Names
+#styles.css  74.4 KiB    main  [emitted]  main
+# bundle.js  15.6 MiB    main  [emitted]  main
