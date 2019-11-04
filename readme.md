@@ -4,8 +4,24 @@
 
 The purpose of this project is to assist business to create records for product procuments, including a barchart displying monthly total spending over last 6 months, percentage quantitative comparison piechart on spending over last 4 months and timeline display of the recent purchases.
 
-### live demo
-[Demo] (https://react16-buget-app.herokuapp.com)
+### Live Demo
+[Demo](https://react16-buget-app.herokuapp.com)
+
+
+### Screenshots
+
+![Screenshot1](screenshots/Login.PNG)
+
+![Screenshot2](screenshots/Dashboard.PNG)
+
+![Screenshot3](screenshots/PurchaseHistory.PNG)
+
+![Screenshot4](screenshots/DeletePopup.PNG)
+
+![Screenshot5](screenshots/Edit.PNG)
+
+
+
 
 ### Features
 - This project is built using React/Redux
@@ -31,7 +47,6 @@ yarn run dev-server
 ## you might see below output
 #i ｢wds｣: Project is running at http://localhost:8080/
 #i ｢wds｣: webpack output is served from /dist/
-#i ｢wds｣: Content not from webpack is served from D:\ReactLearning\react-course-project\expensify-app-React16\public
 #i ｢wds｣: 404s will fallback to /index.html
 #i ｢wdm｣: Hash: 99b239a9632db4d1a630
 #Version: webpack 4.3.0
