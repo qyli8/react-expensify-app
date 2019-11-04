@@ -10,15 +10,15 @@ The purpose of this project is to assist business to create records for product 
 
 ### Screenshots
 
-![Screenshot1](screenshots/Login.PNG)
+![Screenshot1](screenshots/small/Login.PNG)
 
-![Screenshot2](screenshots/Dashboard.PNG)
+![Screenshot2](screenshots/small/Dashboard.PNG)
 
-![Screenshot3](screenshots/PurchaseHistory.PNG)
+![Screenshot3](screenshots/small/PurchaseHistory.PNG)
 
-![Screenshot4](screenshots/DeletePopup.PNG)
+![Screenshot4](screenshots/small/DeletePopup.PNG)
 
-![Screenshot5](screenshots/Edit.PNG)
+![Screenshot5](screenshots/small/Edit.PNG)
 
 
 
