@@ -4,7 +4,9 @@ import Modal from '@material-ui/core/Modal'
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade'
 import Fab from '@material-ui/core/Fab';
-import { withStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux'
+import { ModalClose} from '../actions/modal'
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 const PrimaryButton = withStyles(() => ({
   "extended": {
@@ -14,13 +16,38 @@ const PrimaryButton = withStyles(() => ({
   }
 }))(Fab)
 
-const DeleteModal = ({classes, open, handleClose, description, removeExpense}) => (
+const useStyles = makeStyles(theme => ({
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: "#f7f7ff",
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+  modle_options:{
+    display:'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    fontSize: '15px'
+  },
+  modle_message:{
+    fontSize: '17px'
+  }
+}));
+
+const DeleteModal = ({open, closeModal, description, removeExpense}) =>{ 
+  const classes=useStyles()
+  return(
   <Modal
     aria-labelledby="transition-modal-title"
     aria-describedby="transition-modal-description"
     className={classes.modal}
     open={open}
-    onClose={handleClose}
+    onClose={closeModal}
     closeAfterTransition
     BackdropComponent={Backdrop}
     BackdropProps={{
@@ -34,7 +61,7 @@ const DeleteModal = ({classes, open, handleClose, description, removeExpense}) =
           <PrimaryButton onClick={removeExpense} variant="extended" color="primary" >
           YES
         </PrimaryButton>
-          <PrimaryButton onClick={handleClose} variant="extended" color="secondary">
+          <PrimaryButton onClick={closeModal} variant="extended" color="secondary">
             NO
         </PrimaryButton>
         </div>
@@ -42,5 +69,15 @@ const DeleteModal = ({classes, open, handleClose, description, removeExpense}) =
     </Fade>
   </Modal>
 
-)
-export default DeleteModal
+)}
+
+const mapStateToProps = (state, props) => {
+  return {
+    open: state.modal.open
+  }
+}
+
+const matchDispatchaToProps = (dispatch) => ({
+  closeModal:()=>(dispatch(ModalClose()))
+})
+export default connect(mapStateToProps, matchDispatchaToProps)(DeleteModal)

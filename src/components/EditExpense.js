@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from 'react-redux'
-import {home} from '../actions/path'
 import ExpenseForm from './ExpressForm'
 import { editExpense, removeExpense } from '../actions/expenses'
+import {ModalOpen, ModalClose} from '../actions/modal'
 import Paper from '@material-ui/core/Paper';
 import { withStyles} from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
+import DeleteModal from './DeleteModal'
 
 const CustomPaper = withStyles(()=>({
   root:{padding:"30px"}
@@ -20,21 +21,21 @@ const PrimaryButton = withStyles(()=>({
 }))(Fab)
 
 export class EditExpensePage extends React.Component {
+
+
+
   editExpense = (expense) => {
 
     this.props.editExpense(this.props.match.params.id, expense)
     this.props.history.push("/home")
-    this.props.home('HOME')
   }
   removeExpense = (e) => {
     this.props.removeExpense(this.props.expense)
     this.props.history.push("/home")
-    this.props.home('HOME')
   }
 
   cancel=()=>{
     this.props.history.push("/home")
-    this.props.home('HOME')
   }
 
   render() {
@@ -56,9 +57,13 @@ export class EditExpensePage extends React.Component {
         <PrimaryButton onClick={this.cancel} variant="extended" color="primary" aria-label="cancel"   >
             Cancel
         </PrimaryButton>
-        <PrimaryButton onClick={this.removeExpense} variant="extended" color="secondary" aria-label="remove"   >
+        <PrimaryButton onClick={this.props.openModal} variant="extended" color="secondary" aria-label="remove"   >
             Remove
         </PrimaryButton>
+        <DeleteModal
+              description={this.props.expense.description}
+              removeExpense={ ()=>{this.removeExpense()}}
+            />
         </div>
         </CustomPaper>
           </div>
@@ -80,7 +85,8 @@ const mapStateToProps = (state, props) => {
 const matchDispatchaToProps = (dispatch) => ({
   removeExpense: (expense) => dispatch(removeExpense(expense)),
   editExpense: (id, expense) => dispatch(editExpense(id, expense)),
-  home: (path)=> dispatch(home(path)),
+  openModal: ()=>dispatch(ModalOpen()),
+  closeModal:()=>(dispatch(ModalClose()))
 })
 
 export default connect(mapStateToProps, matchDispatchaToProps)(EditExpensePage);

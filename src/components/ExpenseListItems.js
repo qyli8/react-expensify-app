@@ -1,6 +1,5 @@
 import React from 'react';
 import {history} from '../routes/AppRouter'
-import {edit} from '../actions/path'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import moment from 'moment'
@@ -13,6 +12,7 @@ import Hidden from '@material-ui/core/Hidden';
 import TableRow from '@material-ui/core/TableRow';
 import Fab from '@material-ui/core/Fab';
 import {removeExpense} from '../actions/expenses'
+import {ModalOpen, ModalClose} from '../actions/modal'
 import DeleteModal from './DeleteModal'
 
 // import Edit from '@material-ui/icons'
@@ -66,7 +66,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export const ListItems = ({ description, amount, createdAt, id, removeExpense, edit }) => {
+export const ListItems = ({ description, amount, createdAt, id, removeExpense, edit, openModal,closeModal }) => {
   const CustomTableCell = withStyles(theme => ({
     body: {
       fontSize: 16
@@ -74,24 +74,8 @@ export const ListItems = ({ description, amount, createdAt, id, removeExpense, e
   }))(TableCell);
 
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const removeItem = () =>{
-    handleClose();
-
-  }
-
   const editClick=()=>{
     history.push(`/edit/${id}`)
-    edit('EDIT')
 
   }
 
@@ -106,15 +90,12 @@ export const ListItems = ({ description, amount, createdAt, id, removeExpense, e
             <Fab size="small" className={classes.fab} onClick={editClick} color="primary" aria-label="edit">
                <Edit className={classes.icon} />
             </Fab>
-            <Fab size="small" className={classes.fab} color="secondary" aria-label="delete" onClick={handleOpen}>
+            <Fab size="small" className={classes.fab} color="secondary" aria-label="delete" onClick={openModal}>
               <DeleteForeverIcon className={classes.icon}/>
             </Fab>
             <DeleteModal
-              open={open}
-              classes={classes}
-              handleClose={handleClose}
               description={description}
-              removeExpense={() => { removeExpense({ id }) }}
+              removeExpense={() => { removeExpense({ id });closeModal(); }}
             />
                       
           </div> 
@@ -134,15 +115,12 @@ export const ListItems = ({ description, amount, createdAt, id, removeExpense, e
             <Fab size="small" className={classes.fab} color="primary" aria-label="edit">
               <Link className={classes.item_link} to={`/edit/${id}`}> <Edit className={classes.icon} /></Link>
             </Fab>
-            <Fab size="small" className={classes.fab} color="secondary" aria-label="delete" onClick={handleOpen}>
+            <Fab size="small" className={classes.fab} color="secondary" aria-label="delete" onClick={openModal}>
               <DeleteForeverIcon className={classes.icon}/>
             </Fab>
             <DeleteModal
-              open={open}
-              classes={classes}
-              handleClose={handleClose}
               description={description}
-              removeExpense={() => { removeExpense({ id }) }}
+              removeExpense={() => { removeExpense({ id }); closeModal()}}
             />
           </div> 
           </div>
@@ -155,7 +133,8 @@ export const ListItems = ({ description, amount, createdAt, id, removeExpense, e
 
 const matchDispatchaToProps = (dispatch) => ({
   removeExpense: (expense) => dispatch(removeExpense(expense)),
-  edit: (p)=>dispatch(edit(p))
+  openModal: ()=>dispatch(ModalOpen()),
+  closeModal:()=>(dispatch(ModalClose()))
 })
 
 

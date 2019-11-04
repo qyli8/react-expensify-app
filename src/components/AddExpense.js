@@ -2,7 +2,6 @@ import React from "react";
 import ExpenseForm from './ExpressForm'
 import { connect } from "react-redux";
 import { addExpense } from '../actions/expenses'
-import { home } from '../actions/path'
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
@@ -22,10 +21,8 @@ export class AddExpense extends React.Component {
   onSubmit = (expense) => {
     this.props.addExpense(expense);
     this.props.history.push('/home')
-    this.props.home('HOME')
   }
   cancel = () => {
-    this.props.home('HOME')
     this.props.history.push("/home")
   }
 
@@ -48,8 +45,7 @@ export class AddExpense extends React.Component {
 }
 
 const matchDispatchToProps = (dispatch) => ({
-  addExpense: (expense) => dispatch(addExpense(expense)),
-  home: (path) => dispatch(home(path)),
+  addExpense: (expense) => dispatch(addExpense(expense))
 })
 
 export default connect(undefined, matchDispatchToProps)(AddExpense)

@@ -1,7 +1,6 @@
 import React from 'react'
 import {history} from '../routes/AppRouter'
 import {connect} from 'react-redux'
-import {home, dashboard, create} from '../actions/path'
 import { makeStyles} from '@material-ui/core/styles';
 import AddCircle from '@material-ui/icons/AddCircle';
 import Fab from '@material-ui/core/Fab';
@@ -24,16 +23,13 @@ export const ExpensePageOptions = (props) =>
 {
   const addExepnse = ()=>{
     history.push("/create")
-    props.create("CREATE")
   }
   const gotoDashboard = ()=>{
     history.push("/dashboard")
-    props.home('DASHBOARD')
 
   }
   const gotoExpanseDashboard = ()=>{
     history.push("/home")
-    props.dashboard('HOME')
 
   }
   const classes = useStyles();
@@ -77,9 +73,7 @@ export const ExpensePageOptions = (props) =>
 }
 
 const mapDispatchToProps =(dispatch)=>({
-  home: (path)=> dispatch(home(path)),
-  dashboard: (path)=> dispatch(dashboard(path)),
-  create: (path)=> dispatch(create(path))
+  home: (path)=> dispatch(home(path))
 })
 
 export default connect(undefined,mapDispatchToProps)(ExpensePageOptions);
