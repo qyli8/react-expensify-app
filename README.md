@@ -36,7 +36,7 @@ git clone git@github.com:qyli8/react-redux-app-demo.git
 
 
 # install the packages with npm
-cd react-crm
+cd react-redux-app-demo
 npm install
 
 # start the server at localhost:8080
