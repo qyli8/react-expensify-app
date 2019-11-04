@@ -62,7 +62,7 @@ export class EditExpensePage extends React.Component {
         </PrimaryButton>
         <DeleteModal
               description={this.props.expense.description}
-              removeExpense={ ()=>{this.removeExpense()}}
+              removeExpense={ ()=>{this.removeExpense(); this.props.closeModal()}}
             />
         </div>
         </CustomPaper>
