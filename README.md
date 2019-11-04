@@ -2,7 +2,7 @@
 
 > A resuable product list project based on React 16, Redux and Material UI
 
-The purpose of this project is to assist business to create records for product procuments, including a barchart displying monthly total spending over last 6 months, percentage quantitative comparison piechart on spending over last 4 months and timeline display of the recent purchases.
+The purpose of this project is to assist business to create records for product procuments, including a barchart displying monthly total spending over last 7 months, percentage quantitative comparison piechart on spending over last 4 months and timeline display of the recent purchases.
 
 ### Live Demo
 [Demo](https://react16-buget-app.herokuapp.com)
