@@ -13,6 +13,18 @@ The purpose of this project is to assist business to create records for product 
 - UI of the project used Material UI
 - Routing of the project uses react router hence all client side rendering
 
+### Screenshots
+
+![Screenshot1](screenshots/small/Login.PNG)
+
+![Screenshot2](screenshots/small/Dashboard.PNG)
+
+![Screenshot3](screenshots/small/PurchaseHistory.PNG)
+
+![Screenshot4](screenshots/small/DeletePopup.PNG)
+
+![Screenshot5](screenshots/small/Edit.PNG)
+
 ## Getting Started
 Below are the steps to get the project running on local machine for development and testing purpose
 
@@ -61,15 +73,5 @@ npm run prod-build
 ```
 
 
-## Screenshots
 
-![Screenshot1](screenshots/small/Login.PNG)
-
-![Screenshot2](screenshots/small/Dashboard.PNG)
-
-![Screenshot3](screenshots/small/PurchaseHistory.PNG)
-
-![Screenshot4](screenshots/small/DeletePopup.PNG)
-
-![Screenshot5](screenshots/small/Edit.PNG)
 
