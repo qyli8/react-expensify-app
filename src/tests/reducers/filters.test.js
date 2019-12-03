@@ -4,10 +4,12 @@ test('should setup default filter values',()=>{
   const state = filtersReducer(undefined, {type:'testDefault'})
   expect(state).toEqual({
     text:'',
-    sortBy:'date',
-    startDate:moment().startOf('month'),
-    endDate:moment().endOf('month')
-  });
+    sortBy:'date',// date or amount
+    startDate: moment().startOf('month'),
+    endDate: moment().endOf('month'),
+    order: 'desc'
+  }
+  );
 });
 
 test('should set sortBy to amount',()=>{

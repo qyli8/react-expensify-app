@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should return expenses dashborad page 1`] = `
-<div>
-  <Connect(ExpenseSummary) />
-  <Connect(ExpenseListFilters) />
-  <Connect(ExpenseList) />
-</div>
+<BasePage
+  component={[Function]}
+  title="WELCOME Joanna Li"
+/>
 `;

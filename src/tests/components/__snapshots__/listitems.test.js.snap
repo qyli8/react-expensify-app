@@ -49,32 +49,14 @@ exports[`should return ListItem 1`] = `
           aria-label="delete"
           className="makeStyles-fab-4"
           color="secondary"
-          onClick={[Function]}
           size="small"
         >
           <pure(DeleteForever)
             className="makeStyles-icon-2"
           />
         </[object Object]>
-        <DeleteModal
-          classes={
-            Object {
-              "div": "makeStyles-div-3",
-              "fab": "makeStyles-fab-4",
-              "icon": "makeStyles-icon-2",
-              "item_discription": "makeStyles-item_discription-7",
-              "item_link": "makeStyles-item_link-5",
-              "list_item": "makeStyles-list_item-6",
-              "modal": "makeStyles-modal-8",
-              "modle_message": "makeStyles-modle_message-11",
-              "modle_options": "makeStyles-modle_options-10",
-              "paper": "makeStyles-paper-9",
-              "root": "makeStyles-root-1",
-            }
-          }
+        <Connect(DeleteModal)
           description="item 2"
-          handleClose={[Function]}
-          open={false}
           removeExpense={[Function]}
         />
       </div>
@@ -130,32 +112,14 @@ exports[`should return ListItem 1`] = `
             aria-label="delete"
             className="makeStyles-fab-4"
             color="secondary"
-            onClick={[Function]}
             size="small"
           >
             <pure(DeleteForever)
               className="makeStyles-icon-2"
             />
           </[object Object]>
-          <DeleteModal
-            classes={
-              Object {
-                "div": "makeStyles-div-3",
-                "fab": "makeStyles-fab-4",
-                "icon": "makeStyles-icon-2",
-                "item_discription": "makeStyles-item_discription-7",
-                "item_link": "makeStyles-item_link-5",
-                "list_item": "makeStyles-list_item-6",
-                "modal": "makeStyles-modal-8",
-                "modle_message": "makeStyles-modle_message-11",
-                "modle_options": "makeStyles-modle_options-10",
-                "paper": "makeStyles-paper-9",
-                "root": "makeStyles-root-1",
-              }
-            }
+          <Connect(DeleteModal)
             description="item 2"
-            handleClose={[Function]}
-            open={false}
             removeExpense={[Function]}
           />
         </div>
