@@ -5,13 +5,13 @@ import { withStyles } from '@material-ui/core/styles';
 import { LoginPage } from '../src/components/LoginPage'
 
 export default {
-  title: 'login',
+  title: 'Login',
 };
 
 const CustomPaper = withStyles(() => ({
   root: { 
     padding: "10px" ,
-    width: "60%"}
+    width: "100%"}
 
 }))(Paper)
 export const login = () => (
