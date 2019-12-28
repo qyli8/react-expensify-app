@@ -13,17 +13,16 @@ export const sessionLogin =(status)=> {
   // Invert control!
   // Return a function that accepts `dispatch` so we can dispatch later.
   // Thunk middleware knows how to turn thunk async actions into actions.
-  localStorage.setItem("loginStatus", status)
+  
+ 
   return (dispatch ) => {
-    dispatch(login(status));
+    Promise.all([localStorage.setItem("loginStatus", status)]).then(()=>dispatch(login(status))).then(()=>{console.log("login DONE!")})
   };
   
 }
 
 export const clearSession=(status)=>{
-  localStorage.removeItem("loginStatus")
-  console.log("clearing")
   return(dispatch)=>{
-    dispatch(logout(status))
+    Promise.all([localStorage.removeItem("loginStatus")]).then(()=>dispatch(logout(status)))
   }
 }
