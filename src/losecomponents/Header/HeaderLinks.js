@@ -1,6 +1,6 @@
 /*eslint-disable*/
 import React from "react";
-import {logout} from '../../actions/auth'
+import {clearSession} from '../../actions/auth'
 import {connect} from 'react-redux'
 
 import {history} from '../../routes/AppRouter'
@@ -126,7 +126,7 @@ export const HeaderLinks =(props)=> {
   );
 }
 const mapDispatchToProps =(dispatch)=>({
-  logout: (status)=> dispatch(logout(status))
+  logout: (status)=>dispatch(clearSession(status))
 })
 
 export default connect(undefined,mapDispatchToProps)(HeaderLinks);

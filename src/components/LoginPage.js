@@ -1,5 +1,5 @@
 import React from 'react'
-import {login} from '../actions/auth'
+import {sessionLogin} from '../actions/auth'
 import {connect} from 'react-redux'
 // @material-ui/core ../losecomponents
 import { makeStyles } from "@material-ui/core/styles";
@@ -117,7 +117,7 @@ export const LoginPage=(props) => {
 
 
 const mapDispatchToProps =(dispatch)=>({
-  login: (status)=> dispatch(login(status)),
+  login: (status)=> dispatch(sessionLogin(status)),
 })
 
 export default connect(undefined,mapDispatchToProps)(LoginPage);

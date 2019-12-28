@@ -1,12 +1,15 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {logout} from '../actions/auth'
+import {clearSession} from '../actions/auth'
 import {history} from '../routes/AppRouter'
 export const Header = (props) =>{
   const logoutAccount=()=>{
-    history.push('/')
     props.logout('UNAUTHORIZED')
+    console.log("testing here")
+    history.push('/')
+   
+    
   }
   return(
     <header className="header">
@@ -23,7 +26,7 @@ export const Header = (props) =>{
 }
 
 const mapDispatchToProps = (dispatch)=>({
-  logout: (status)=>dispatch(logout(status))
+  logout: (status)=>dispatch(clearSession(status))
 })
 
 export default connect(undefined, mapDispatchToProps)(Header);

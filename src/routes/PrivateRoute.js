@@ -21,7 +21,7 @@ export const PrivateRoute = ({
 )
 
 const mapStateToProps =(state)=>({
-  isAuthenticated: state.auth.status==="AUTHORIZED"
+  isAuthenticated: state.auth.status==="AUTHORIZED" || localStorage.getItem("loginStatus") === "AUTHORIZED"
 })
 
 export default connect(mapStateToProps)(PrivateRoute)
